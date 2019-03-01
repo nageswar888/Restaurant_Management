@@ -1,0 +1,59 @@
+
+
+
+<div class="container">
+  <div class="row" >
+    <div class="col-md-4"><app-search></app-search></div>
+    <div class="col-md-8">
+      <div>this is restaurant component</div>
+
+      <div *ngFor="let restaurant of restaurants">
+      <div class="row" (click)="popup()" >
+        <div class="col-md-3">
+          <div>{{restaurant.img}}</div></div>
+        <div class="col-md-8">
+          <div>{{restaurant.name}}</div>
+          <div>rating: {{restaurant.rating}}</div>
+          <div>location: {{restaurant.location}}</div>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+    <!--<div class="row" (click)="popup()">
+      <div class="col-md-3">img</div>
+      <div class="col-md-8">
+        <div>Restraunt2 name</div>
+        <div>Rating</div>
+        <div>Location</div>
+      </div>
+    </div>
+
+      <div class="row" (click)="popup()">
+        <div class="col-md-3">img</div>
+        <div class="col-md-8">
+          <div>Restraunt3 name</div>
+          <div>Rating</div>
+          <div>Location</div>
+        </div>
+      </div>
+
+      <div class="row" (click)="popup()">
+        <div class="col-md-3">img</div>
+        <div class="col-md-8">
+          <div>Restraunt4 name</div>
+          <div>Rating</div>
+          <div>Location</div>
+        </div>
+      </div>
+
+  </div>
+  </div>
+</div>
+
+
+{{restaurants.name}}
+-->

@@ -16,10 +16,7 @@ export class RegistrationComponent implements OnInit {
 
   ) { }
 
-  //p = '^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$';
 
-
- // emailid = "^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$";
 
 
 

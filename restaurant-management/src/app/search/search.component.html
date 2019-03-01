@@ -1,0 +1,40 @@
+<p>this is search component</p>
+
+<div class="container">
+  <div class="topnav">
+    <label>search</label>&nbsp;
+    <input type="search" name="search" placeholder="search">
+  </div>
+  <div>
+  <input type="radio" name="radio" value="name">
+  <label>Name</label>
+  </div>
+  <div>
+  <input type="radio" name="radio" value="rating">
+  <label>Rating</label>
+  </div>
+  <div>
+  <input type="radio" name="radio" value="location">
+  <label>Location</label>
+  </div>
+
+  <div class="dropdown">
+    <p class="dropbtn">User</p>
+    <div class="dropdown-content">
+      <button class="btn btn-link">View profile</button>
+      <button class="btn btn-link">Restaurants</button>
+      <button class="btn btn-link">view Users</button>
+      <button class="btn btn-link">logout</button>
+    </div>
+  </div>
+
+</div>
+<div>
+  <input type="text" [(ngModel)]="userFilter.name" placeholder="name">
+  <ul>
+    <li *ngFor="let user of users | filterBy: userFilter">{{ user.name }}</li>
+
+    <!-- in case you want to show empty message -->
+    <li *ngIf="(users | filterBy: userFilter).length === 0">No matching elements</li>
+  </ul>
+</div>

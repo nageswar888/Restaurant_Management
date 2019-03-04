@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 
 
@@ -10,12 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class SearchComponent implements OnInit {
 
   users: any[] = [{ name: 'John' }, { name: 'Jane' }, { name: 'Mario' }];
-  userFilter: any = { name: '' };
+  userFilter: any = { name: '',rating:'' };
 
+  @Input()
+  value;
+  restaurants: any;
 
   constructor() { }
 
   ngOnInit() {
+    this.restaurants= this.value;
+
   }
 
 }

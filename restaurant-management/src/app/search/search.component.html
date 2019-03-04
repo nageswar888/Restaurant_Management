@@ -1,9 +1,14 @@
-<p>this is search component</p>
 
 <div class="container">
   <div class="topnav">
     <label>search</label>&nbsp;
-    <input type="search" name="search" placeholder="search">
+    <input type="search" name="search" [(ngModel)]="userFilter.name" placeholder="search">
+    <ul>
+      <li *ngFor="let users of restaurants | filterBy: userFilter">{{ users.name }}</li>
+
+      <!-- in case you want to show empty message -->
+      <li *ngIf="(restaurants | filterBy: userFilter).length === 0">No matching elements</li>
+    </ul>
   </div>
   <div>
   <input type="radio" name="radio" value="name">
@@ -30,11 +35,16 @@
 
 </div>
 <div>
-  <input type="text" [(ngModel)]="userFilter.name" placeholder="name">
+  <!--<input type="text" [(ngModel)]="userFilter.name" placeholder="name">
   <ul>
-    <li *ngFor="let user of users | filterBy: userFilter">{{ user.name }}</li>
+    <li *ngFor="let users of restaurants | filterBy: userFilter">{{ users.name }}</li>
 
-    <!-- in case you want to show empty message -->
-    <li *ngIf="(users | filterBy: userFilter).length === 0">No matching elements</li>
-  </ul>
+    &lt;!&ndash; in case you want to show empty message &ndash;&gt;
+    <li *ngIf="(restaurants | filterBy: userFilter).length === 0">No matching elements</li>
+  </ul>-->
 </div>
+
+<!--
+<div *ngFor="let rest of restaurants">{{rest.name}}</div>
+-->
+bfggbfn

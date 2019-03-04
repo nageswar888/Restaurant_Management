@@ -13,6 +13,7 @@ export class RestaurantsComponent implements OnInit {
     { img:'img2', name:'Restaurant2', rating:'0', location:'hitech city'},
     { img:'img3', name:'Restaurant3', rating:'0', location:'kukatpally'}];
 
+  userFilter: any = { name: '',rating:'' ,location:''};
 
   constructor() { }
 

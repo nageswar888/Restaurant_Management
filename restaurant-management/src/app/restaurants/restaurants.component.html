@@ -1,24 +1,28 @@
 
-
+<nav class="navbar navbar-expand-lg navbar-light  navbar-custom">
+  <div class="col-md-6"></div>
+  <input class="form-control col-md-4" type="search" [(ngModel)]="userFilter.name" placeholder="Search" aria-label="Search">
+</nav>
+<div><br/></div>
 
 <div class="container">
   <div class="row" >
-    <div class="col-md-4"><app-search></app-search></div>
-    <div class="col-md-8">
-      <div>this is restaurant component</div>
-
-      <div *ngFor="let restaurant of restaurants">
-      <div class="row" (click)="popup()" >
-        <div class="col-md-3">
+    <div class="col-md-5"><app-search [value]="restaurants"></app-search></div>
+    <div class="col-md-7">
+      <div *ngFor="let restaurant of restaurants | filterBy: userFilter">
+      <div class="row div1" (click)="popup()" >
+        <div class="col-md-4">
           <div>{{restaurant.img}}</div></div>
         <div class="col-md-8">
           <div>{{restaurant.name}}</div>
-          <div>rating: {{restaurant.rating}}</div>
+          <div><rating [ngModel]="3" [max]="5"
+                       [readonly]="true" style="font-size: 11px;"></rating>
+          </div>
           <div>location: {{restaurant.location}}</div>
         </div>
       </div>
       </div>
-
+      <div *ngIf="(restaurants | filterBy: userFilter).length === 0">No matching elements found</div>
     </div>
   </div>
 </div>

@@ -2,13 +2,27 @@
 <nav class="navbar navbar-expand-lg navbar-light  navbar-custom">
   <div class="col-md-6"></div>
   <input class="form-control col-md-4" type="search" [(ngModel)]="userFilter.name" placeholder="Search" aria-label="Search">
+
+<!--
+ user in the restaurant
+-->
+  <div class="dropdown">
+    <p class="dropbtn col-md-1">User</p>
+    <div class="dropdown-content">
+      <button class="btn btn-link">View profile</button>
+      <button class="btn btn-link">Restaurants</button>
+      <button class="btn btn-link">view Users</button>
+      <button class="btn btn-link">logout</button>
+    </div>
+  </div>
+
 </nav>
 <div><br/></div>
 
 <div class="container">
   <div class="row" >
-    <div class="col-md-5"><app-search [value]="restaurants"></app-search></div>
-    <div class="col-md-7">
+    <div class="col-md-4"><app-search [value]="restaurants"></app-search></div>
+    <div class="col-md-8">
       <div *ngFor="let restaurant of restaurants | filterBy: userFilter">
       <div class="row div1" (click)="popup()" >
         <div class="col-md-4">

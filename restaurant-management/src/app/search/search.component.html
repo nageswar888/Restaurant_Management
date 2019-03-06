@@ -1,7 +1,7 @@
+<p id="filter"><b>Filters</b></p>
 
 <div class="container">
   <div class="topnav">
-    <label>search</label>&nbsp;
     <input type="search" name="search" [(ngModel)]="userFilter.name" placeholder="search">
     <ul>
       <li *ngFor="let users of restaurants | filterBy: userFilter">{{ users.name }}</li>
@@ -11,16 +11,16 @@
     </ul>
   </div>
   <div>
-  <input type="radio" name="radio" value="name">
-  <label>Name</label>
+  <input type="checkbox" name="star" value="5strar">&nbsp;
+  <label>5 star</label>
   </div>
   <div>
-  <input type="radio" name="radio" value="rating">
-  <label>Rating</label>
+  <input type="checkbox" name="buffet" value="buffet">&nbsp;
+  <label>Buffet</label>
   </div>
   <div>
-  <input type="radio" name="radio" value="location">
-  <label>Location</label>
+  <input type="checkbox" name="chinese" value="chinese">&nbsp;
+  <label>chinese</label>
   </div>
 
   <div class="dropdown">
@@ -47,4 +47,3 @@
 <!--
 <div *ngFor="let rest of restaurants">{{rest.name}}</div>
 -->
-bfggbfn

@@ -1,3 +1,10 @@
+#filter{
+  color: crimson;
+  margin-left: 50px;
+}
+
+
+
 .dropdown {
   position: relative;
   display: inline-block;

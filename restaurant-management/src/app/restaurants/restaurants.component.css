@@ -4,16 +4,35 @@ cursor: all-scroll;
 .div1
 {
   border-style: solid;
+  margin-top: 15px;
 }
-
 
 .navbar-custom {
-  background-color: bisque;
+  background-color: burlywood;
 }
 
-/*
-this is for user css in restaurants component
-*/
+#image{
+  width: 10%;
+  height: auto;
+
+}
+
+/* this is for footer */
+#footer{
+  background-color: burlywood;
+  position: fixed;
+  left: 0;
+  bottom: 0px;
+  width: 100%;
+  color: black;
+  text-align: center;
+}
+
+.card{
+  margin-top: 28px;
+}
+
+/* this is for user css in restaurants component */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -25,7 +44,7 @@ this is for user css in restaurants component
   background-color: #f1f1f1;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-
+ z-index: 1000;
 }
 .dropbtn{
   cursor: all-scroll;

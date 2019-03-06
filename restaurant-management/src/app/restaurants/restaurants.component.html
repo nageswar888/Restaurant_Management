@@ -20,13 +20,13 @@
 <div><br/></div>
 
 <div class="container">
-  <div class="row" >
+  <div class="row " >
     <div class="col-md-4"><app-search [value]="restaurants"></app-search></div>
     <div class="col-md-8">
       <div *ngFor="let restaurant of restaurants | filterBy: userFilter">
       <div class="row div1" (click)="popup()" >
         <div class="col-md-4">
-          <div>{{restaurant.img}}</div></div>
+          <div id="image"><img src="assets/images/download.jpeg"></div></div>
         <div class="col-md-8">
           <div>{{restaurant.name}}</div>
           <div><rating [ngModel]="3" [max]="5"
@@ -42,3 +42,17 @@
 </div>
 
 
+<!--
+    <footer id="footer">
+      <div class="footer-copyright text-center py-3">© 2019 Copyright</div>
+    </footer>
+-->
+
+<div class="container-fluid">
+  <div class="row">
+    <footer class="page-footer font-small blue" id="footer">
+      <div class="footer-copyright text-center py-3">© 2019 Copyright
+      </div>
+    </footer>
+  </div>
+</div>

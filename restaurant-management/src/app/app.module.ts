@@ -12,6 +12,9 @@ import { SearchComponent } from './search/search.component';
 import { FilterPipeModule } from 'ngx-filter-pipe';
 import { FormsModule} from "@angular/forms";
 import {RatingModule} from "ngx-rating";
+import { RestaurantsListComponent } from './restaurants-list/restaurants-list.component';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { ViewUserComponent } from './view-user/view-user.component';
 
 
 @NgModule({
@@ -20,7 +23,10 @@ import {RatingModule} from "ngx-rating";
     LoginComponent,
     RegistrationComponent,
     RestaurantsComponent,
-    SearchComponent
+    SearchComponent,
+    RestaurantsListComponent,
+    ViewProfileComponent,
+    ViewUserComponent
   ],
   imports: [
     BrowserModule,

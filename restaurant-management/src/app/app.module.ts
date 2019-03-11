@@ -26,7 +26,7 @@ import { ViewUserComponent } from './view-user/view-user.component';
     SearchComponent,
     RestaurantsListComponent,
     ViewProfileComponent,
-    ViewUserComponent
+    ViewUserComponent,
   ],
   imports: [
     BrowserModule,

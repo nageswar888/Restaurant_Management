@@ -12,7 +12,7 @@ export class RegistrationComponent implements OnInit {
   submitted = false;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: FormBuilder
 
   ) { }
 

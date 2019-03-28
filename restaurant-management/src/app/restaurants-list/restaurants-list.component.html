@@ -9,6 +9,7 @@
 <div class="container">
 
   <!--adding restaurants-->
+  <div class="size">
 <div *ngIf="add_res">
   <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -59,7 +60,7 @@
     </div>
   </form>
 </div>
-
+  </div>
   <!--viewing of restaurants-->
 <div *ngIf ="view_res">
   view_restaurant
@@ -73,6 +74,7 @@
 </div>
 
   <!--edit restaurants-->
+  <div class="size">
 <div *ngIf ="edit_res">
   Enter the changed details
   <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()">
@@ -124,6 +126,7 @@
     </div>
   </form>
 </div>
+  </div>
 
 
 <div class="container-fluid">

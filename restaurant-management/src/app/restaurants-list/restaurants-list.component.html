@@ -50,8 +50,23 @@
       <label>Type of Restaurant</label>
       <input type="text" formControlName="type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.type.errors }" />
       <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
-        <div *ngIf="f.type.errors.required">email is required</div>
+        <div *ngIf="f.type.errors.required">type of restauarnt is required</div>
       </div>
+    </div>
+
+    <div class="form-group">
+      <label>Cuisines</label>
+      <select>
+        <option value="Indian">Indian</option>
+        <option value="Punjabi">Punjabi</option>
+        <option value="South Indian">South Indian</option>
+        <option value="North Indian">North Indian</option>
+        <option value="Gujarathi">Gujarathi</option>
+        <option value="Goan">Goan</option>
+        <option value="Tamil">Tamil</option>
+        <option value="Bengali">Bengali</option>
+        <option value="Rajastani">Rajastani</option>
+      </select>
     </div>
 
     <div class="form-group">
@@ -119,6 +134,22 @@
         <div *ngIf="f.type.errors.required">email is required</div>
       </div>
     </div>
+
+    <div class="form-group">
+      <label>Cuisines</label>
+      <select>
+        <option value="Indian">Indian</option>
+        <option value="Punjabi">Punjabi</option>
+        <option value="South Indian">South Indian</option>
+        <option value="North Indian">North Indian</option>
+        <option value="Gujarathi">Gujarathi</option>
+        <option value="Goan">Goan</option>
+        <option value="Tamil">Tamil</option>
+        <option value="Bengali">Bengali</option>
+        <option value="Rajastani">Rajastani</option>
+      </select>
+    </div>
+
 
     <div class="form-group">
       <button class="btn btn-success">Save</button>

@@ -19,10 +19,6 @@ export class RestaurantsComponent implements OnInit {
 
   ngOnInit() {
   }
-popup(){
-    alert("div selected");
-}
-
 
 
 }

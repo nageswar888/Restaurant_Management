@@ -1,0 +1,17 @@
+{
+  "generator-ng-fullstack": {
+    "appName": "server",
+    "username": "nageswar",
+    "userEmail": "knageswar888@gmail.com",
+    "stack": "server",
+    "repoHostUrl": "github.com",
+    "userNameSpace": "nageswar",
+    "client": "",
+    "server": "node",
+    "nodeWebFrameworkServer": "express",
+    "transpilerServer": "babel",
+    "secure": false,
+    "testsSeparated": true,
+    "boilerplate": true
+  }
+}

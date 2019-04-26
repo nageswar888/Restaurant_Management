@@ -57,10 +57,4 @@ export class RegistrationComponent implements OnInit {
     })
   }
 
-
-  retrive(){
-    this.Registration.getting().subscribe( (responce) =>{
-      console.log("----------getting",responce)
-    })
-  }
 }

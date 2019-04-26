@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RegistrationService } from "../registration/registration.service";
+
 
 @Component({
   selector: 'app-view-user',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-user.component.css']
 })
 export class ViewUserComponent implements OnInit {
+  public users: any;
 
-  constructor() { }
+  constructor(private Registration:RegistrationService) { }
 
   ngOnInit() {
-  }
+
+      this.Registration.getting().subscribe( (responce) =>{
+        console.log("----------getting",responce)
+        this.users = responce.rows
+      },() =>{},
+        ()=>{})
+    }
+
 
 }

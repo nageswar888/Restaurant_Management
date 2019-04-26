@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RegService } from '../reg.service'
+//import { RegService } from '../reg.service';
+import { RegistrationService } from "./registration.service";
 
 @Component({
   selector: 'app-registration',
@@ -8,13 +9,14 @@ import { RegService } from '../reg.service'
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+
   registerForm: FormGroup;
   submitted = false;
   private formdata: any;
 
   constructor(
     private formBuilder: FormBuilder,
-    private reg:RegService
+    private Registration:RegistrationService
 
   ) { }
 
@@ -50,14 +52,14 @@ export class RegistrationComponent implements OnInit {
   }
   post_user(formdata){
     console.log(formdata)
-    this.reg.PostUser(formdata).subscribe( (responce) => {
+    this.Registration.PostUser(formdata).subscribe( (responce) => {
       console.log("---------responce in ts",responce)
     })
   }
 
 
   retrive(){
-    this.reg.getting().subscribe( (responce) =>{
+    this.Registration.getting().subscribe( (responce) =>{
       console.log("----------getting",responce)
     })
   }

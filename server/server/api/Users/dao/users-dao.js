@@ -4,7 +4,7 @@ import Promise from 'bluebird';
 export class usersDao {
   static getAll() {
     return new Promise((resolve, reject) => {
-      models.Users.findAndCountAll()
+      models.users.findAndCountAll()
         .then(users => {
           resolve(users);
         })
@@ -15,9 +15,10 @@ export class usersDao {
   }
 
   static createNew(_body) {
+    console.log("----------dao method",_body)
     return new Promise((resolve, reject) => {
-      models.Users.create({
-        firstName: _body.firstName,
+      models.users.create({
+        firstName:_body.firstName,
         lastName: _body.lastName,
         phone: _body.phone,
         email: _body.email,
@@ -40,6 +41,36 @@ export class usersDao {
         .catch(error => {
           reject(error);
         });
+    });
+  }
+
+
+
+  /////////////////////////////////////////////////
+
+
+  static getnag() {
+    return new Promise((resolve, reject) => {
+      models.nag.findAndCountAll()
+        .then(users => {
+          resolve(users);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
+
+
+  static postnag(_body) {
+    console.log("----------dao method",_body)
+    return new Promise((resolve, reject) => {
+      models.nag.create({
+      username: _body.username
+      }).then(user => {
+        resolve(user);
+      })
+        .catch(error => reject(error));
     });
   }
 }

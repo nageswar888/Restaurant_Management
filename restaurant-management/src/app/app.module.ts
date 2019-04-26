@@ -15,6 +15,8 @@ import {RatingModule} from "ngx-rating";
 import { RestaurantsListComponent } from './restaurants-list/restaurants-list.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { ViewUserComponent } from './view-user/view-user.component';
+import {QueryApi} from "./commonservice/request/QueryApi";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -34,9 +36,10 @@ import { ViewUserComponent } from './view-user/view-user.component';
     AppRoutingModule,
     RatingModule,
     FilterPipeModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [QueryApi],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,7 +8,6 @@ export class userRoutes {
 
     router.route('/user/:id')
     .delete(usersController.delete)
-    console.log("---------routes")
 
   }
   }

@@ -22,23 +22,4 @@ export class usersController {
       .catch(error => res.status(400).json(error));
   }
 
-
-////////////////////////////////////////////////////////////////////
-
-
-
-  static getnag(req, res) {
-    usersDao.getnag()
-      .then(uses => res.status(200).json(uses))
-      .catch(error => res.status(400).json(error));
-  }
-
-  static postnag(req, res) {
-    console.log("----------createNew method")
-    let _body = req.body;
-    //console.log("----------createNew method param",_body)
-    usersDao.postnag(_body)
-      .then(uses => res.status(200).json(uses))
-      .catch(error => res.status(400).json(error));
-  }
 }

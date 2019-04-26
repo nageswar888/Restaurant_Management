@@ -33,8 +33,9 @@ export class usersDao {
   }
 
   static delete(paramet) {
+    console.log("////////////",paramet)
     return new Promise((resolve, reject) => {
-      models.Users.destroy({where: {id: paramet}})
+      models.users.destroy({where: {id: paramet}})
         .then(users => {
           resolve(users);
         })
@@ -44,33 +45,4 @@ export class usersDao {
     });
   }
 
-
-
-  /////////////////////////////////////////////////
-
-
-  static getnag() {
-    return new Promise((resolve, reject) => {
-      models.nag.findAndCountAll()
-        .then(users => {
-          resolve(users);
-        })
-        .catch(error => {
-          reject(error);
-        });
-    });
-  }
-
-
-  static postnag(_body) {
-    console.log("----------dao method",_body)
-    return new Promise((resolve, reject) => {
-      models.nag.create({
-      username: _body.username
-      }).then(user => {
-        resolve(user);
-      })
-        .catch(error => reject(error));
-    });
-  }
 }

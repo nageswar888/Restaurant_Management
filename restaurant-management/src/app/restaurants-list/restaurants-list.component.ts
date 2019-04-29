@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RestaurantListService } from "./restaurant-list.service";
+import {v} from "@angular/core/src/render3";
 
 
 @Component({
@@ -10,14 +11,15 @@ import { RestaurantListService } from "./restaurant-list.service";
 })
 export class RestaurantsListComponent implements OnInit {
 
+  public restaurantForm:FormGroup;
+  public deleteForm:FormGroup
+
   public view_res: boolean;
   public delet_res: boolean;
   public add_res: boolean;
   public edit_res: boolean;
-  public restaurantForm:FormGroup;
   public submitted = false;
   public getRestaurants: any;
-
 
   add_restaurants(){
     this.add_res= true;
@@ -59,22 +61,27 @@ export class RestaurantsListComponent implements OnInit {
     this.get_restaurants()
 
     this.restaurantForm = this.formBuilder.group({
-      Name: ['', Validators.required],
-      Location: ['', Validators.required],
-      phone: ['', [Validators.required, Validators.pattern("^[0-9]{10}$")]],
-      email: ['', [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
-      type: ['', Validators.required]
+      Name: ['yuy', Validators.required],
+      Location: ['yujh', Validators.required],
+      phone: ['9951506361', [Validators.required, Validators.pattern("^[0-9]{10}$")]],
+      email: ['ytygh@gsfg.com', [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
+      type: ['3 star', Validators.required],
+      cuisine: [''],
+      image: ['']
     });
     }
 
   get f() { return this.restaurantForm.controls; }
 
 
-  onSubmit() {
+  onSubmit(formdata) {
     this.submitted = true;
-    // stop here if form is invalid
+
     if (this.restaurantForm.invalid) {
       return;
+    }
+    else{
+      this.post_restaurants(formdata)
     }
   }
 
@@ -85,4 +92,17 @@ export class RestaurantsListComponent implements OnInit {
     }, () => {})
   }
 
+  post_restaurants(formdata){
+    console.log("---------form data",formdata)
+    this.restaurant.postRestaurants(formdata).subscribe((responce) => {
+      console.log("--------restaurants",responce)
+    }, () => {})
+  }
+
+  delete_Restaurants(value){
+    alert(value)
+   /* this.restaurant.postRestaurants(value).subscribe((responce) => {
+      console.log("--------restaurants",responce)
+    }, () => {})*/
+  }
 }

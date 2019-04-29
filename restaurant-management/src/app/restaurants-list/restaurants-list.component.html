@@ -11,7 +11,7 @@
   <!--adding restaurants-->
   <div class="size">
 <div *ngIf="add_res">
-  <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit(restaurantForm.value)">
     <div class="form-group">
       <label >Name</label>
       <input type="text" formControlName="Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" />
@@ -56,7 +56,7 @@
 
     <div class="form-group">
       <label>Cuisines</label>
-      <select>
+      <select  formControlName="cuisine">
         <option value="Indian">Indian</option>
         <option value="Punjabi">Punjabi</option>
         <option value="South Indian">South Indian</option>
@@ -69,11 +69,11 @@
       </select>
     </div>
 
-    <!--<div class="form-group">
+    <div class="form-group">
     <label class="image-upload-container btn btn-bwm">
       <span>Select Image</span>
-      <input type="file" accept="image/*">
-    </label></div>-->
+      <input type="file" accept="image/*" formControlName="image">
+    </label></div>
 
 
     <div class="form-group">
@@ -83,6 +83,7 @@
   </form>
 </div>
   </div>
+
   <!--viewing of restaurants-->
 <div *ngIf ="view_res">
   view_restaurant
@@ -93,17 +94,15 @@
     <div>Phone:{{getRestaurant.phone}}</div>
     <div>Email:{{getRestaurant.email}}</div>
     <div>Type:{{getRestaurant.type}}</div>
+    <div>image:{{getRestaurant.image}}</div><br>
   </div>
 </div>
-
-
 </div>
 
   <!--deleting of restaurants-->
 <div *ngIf ="delet_res">
   <p>Enter the name of the restaurant you want to detete</p>
-  Name:<input type="text" name="res_name">
-  <button (click)="rest_delete()">Delete</button>
+    Name:<input type="text" name="firstName">
 </div>
 
   <!--edit restaurants-->

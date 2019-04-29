@@ -6,9 +6,8 @@ module.exports = (sequelize, DataTypes) => {
     phone: DataTypes.STRING,
     email: DataTypes.STRING,
     type: DataTypes.STRING,
-/*
-    res_img: DataTypes.BLOB
-*/
+    cuisine:DataTypes.STRING,
+    image: DataTypes.BLOB
   }, {});
   Restaurants.associate = function(models) {
     // associations can be defined here

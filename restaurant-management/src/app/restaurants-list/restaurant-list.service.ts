@@ -18,4 +18,11 @@ export class RestaurantListService {
         catchError(err => of([err]))
       );
   }
+  postRestaurants(params):Observable<any>{
+
+    return this.queryApi.doPost('RESTAURANTS', params)
+      .pipe(
+         catchError(err => of([err]))
+      );
+  }
 }

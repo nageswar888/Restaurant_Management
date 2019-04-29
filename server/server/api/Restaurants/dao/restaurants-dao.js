@@ -23,6 +23,8 @@ export class restaurantsDao {
         phone: _body.phone,
         email: _body.email,
         type: _body.type,
+        cuisine: _body.cuisine,
+        image: _body.image
       }).then(restaurants => {
         resolve(restaurants);
       })

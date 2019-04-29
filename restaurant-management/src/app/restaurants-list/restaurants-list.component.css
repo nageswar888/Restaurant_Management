@@ -5,12 +5,12 @@
 
 
 .navbar-custom {
-  background-color: burlywood;
+  background: linear-gradient(to bottom, #33ccff 1%, #ff9966 100%);
 }
 
 /*footer*/
 #footer{
-  background-color: burlywood;
+  background: linear-gradient(to bottom, #33ccff 1%, #ff9966 100%);
   position: fixed;
   left: 0;
   bottom: 0px;

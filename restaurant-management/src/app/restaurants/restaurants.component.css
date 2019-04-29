@@ -7,25 +7,10 @@ cursor: all-scroll;
   margin-top: 15px;
 }
 
-.navbar-custom {
-  background: linear-gradient(to bottom, #33ccff 1%, #ff9966 100%);
-}
-
 #image{
   width: 10%;
   height: auto;
 
-}
-
-/* this is for footer */
-#footer{
-  background: linear-gradient(to bottom, #33ccff 1%, #ff9966 100%);
-  position: fixed;
-  left: 0;
-  bottom: 0px;
-  width: 100%;
-  color: black;
-  text-align: center;
 }
 
 .card{
@@ -57,8 +42,11 @@ cursor: all-scroll;
   display: block;
 }
 
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content a:hover {
+  background-color: #ddd;
+  text-decoration: none;
+}
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {display: block; }
 
 

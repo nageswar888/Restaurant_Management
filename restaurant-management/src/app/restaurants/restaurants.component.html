@@ -1,23 +1,18 @@
+<br><div class="row">
+<div class="col-md-6"></div>
+<input class="form-control col-md-4" type="search" [(ngModel)]="userFilter.name" placeholder="Search" aria-label="Search">
 
-<nav class="navbar navbar-expand-lg navbar-light  navbar-custom">
-  <div class="col-md-6"></div>
-  <input class="form-control col-md-4" type="search" [(ngModel)]="userFilter.name" placeholder="Search" aria-label="Search">
-
-<!--
- user in the restaurant
--->
-  <div class="dropdown">
-    <p class="dropbtn col-md-1">User</p>
-    <div class="dropdown-content">
-      <button routerLink='/view-profile' class="btn btn-link">View profile</button>
-      <button routerLink='/restaurants-list' class="btn btn-link">Restaurants</button>
-      <button routerLink='/view-user' class="btn btn-link">View Users</button>
-      <button class="btn btn-link">Logout</button>
-    </div>
+<!-- user in the restaurant -->
+<div class="dropdown">
+  <p class="dropbtn col-md-1">User</p>
+  <div class="dropdown-content">
+    <button routerLink='/view-profile' class="btn btn-link">View profile</button>
+    <button routerLink='/restaurants-list' class="btn btn-link">Restaurants</button>
+    <button routerLink='/view-user' class="btn btn-link">View Users</button>
+    <button class="btn btn-link">Logout</button>
   </div>
-
-</nav>
-<div><br/></div>
+</div>
+</div>
 
 <div class="container">
   <div class="row " >
@@ -64,14 +59,3 @@
   </div>
 </div>
 
-<!--for footer-->
-<div>&nbsp;<br>&nbsp;<br>&nbsp;<br>&nbsp;</div>
-
-<div class="container-fluid">
-  <div class="row">
-    <footer class="page-footer font-small blue" id="footer">
-      <div class="footer-copyright text-center py-3">© 2019 Copyright
-      </div>
-    </footer>
-  </div>
-</div>

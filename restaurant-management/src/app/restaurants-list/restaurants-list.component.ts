@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { RestaurantListService } from "./restaurant-list.service";
 
 
 @Component({
@@ -10,12 +10,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RestaurantsListComponent implements OnInit {
 
-  view_res: boolean;
-  delet_res: boolean;
-  add_res: boolean;
-  edit_res: boolean;
-  restaurantForm:FormGroup;
-  submitted = false;
+  public view_res: boolean;
+  public delet_res: boolean;
+  public add_res: boolean;
+  public edit_res: boolean;
+  public restaurantForm:FormGroup;
+  public submitted = false;
+  public getRestaurants: any;
 
 
   add_restaurants(){
@@ -50,11 +51,13 @@ export class RestaurantsListComponent implements OnInit {
     alert("deleted");
   }
   constructor(
-    private formBuilder: FormBuilder
-
+    private formBuilder: FormBuilder,
+    private restaurant:RestaurantListService
   ) { }
 
   ngOnInit() {
+    this.get_restaurants()
+
     this.restaurantForm = this.formBuilder.group({
       Name: ['', Validators.required],
       Location: ['', Validators.required],
@@ -69,11 +72,17 @@ export class RestaurantsListComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
     // stop here if form is invalid
     if (this.restaurantForm.invalid) {
       return;
     }
+  }
+
+  get_restaurants(){
+    this.restaurant.getRestaurants().subscribe((responce) => {
+      this.getRestaurants = responce.rows
+     /* console.log("--------restaurants",this.getRestaurants)*/
+    }, () => {})
   }
 
 }

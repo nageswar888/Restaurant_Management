@@ -69,11 +69,11 @@
       </select>
     </div>
 
-    <div class="form-group">
+    <!--<div class="form-group">
     <label class="image-upload-container btn btn-bwm">
       <span>Select Image</span>
       <input type="file" accept="image/*">
-    </label></div>
+    </label></div>-->
 
 
     <div class="form-group">
@@ -86,6 +86,17 @@
   <!--viewing of restaurants-->
 <div *ngIf ="view_res">
   view_restaurant
+<div *ngIf="getRestaurants">
+  <div *ngFor="let getRestaurant of getRestaurants">
+    <div>Name:{{getRestaurant.Name}}</div>
+    <div>Location:{{getRestaurant.Location}}</div>
+    <div>Phone:{{getRestaurant.phone}}</div>
+    <div>Email:{{getRestaurant.email}}</div>
+    <div>Type:{{getRestaurant.type}}</div>
+  </div>
+</div>
+
+
 </div>
 
   <!--deleting of restaurants-->

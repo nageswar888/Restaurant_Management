@@ -1,6 +1,7 @@
 import { environment } from './../../../environments/environment';
 export const POSTUSER = 'POSTUSER';
-export const USER = 'USER'
+export const USER = 'USER';
+export const RESTAURANTS = 'RESTAURANTS';
 
 export const UserEndPoint = (type:string,params:any)=> {
  console.log("---------userEndpoint")
@@ -11,6 +12,9 @@ export const UserEndPoint = (type:string,params:any)=> {
 
     case USER:
       return environment.API_ROOT + 'user/';
+
+    case RESTAURANTS:
+      return environment.API_ROOT + 'restaurants/';
 
 
   }

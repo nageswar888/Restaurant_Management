@@ -17,6 +17,7 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 import {QueryApi} from "./commonservice/request/QueryApi";
 import {HttpClientModule} from "@angular/common/http";
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {HttpClientModule} from "@angular/common/http";
     RatingModule,
     FilterPipeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [QueryApi],
   bootstrap: [AppComponent]

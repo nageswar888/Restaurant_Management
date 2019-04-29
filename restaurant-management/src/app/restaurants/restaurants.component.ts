@@ -9,6 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RestaurantsComponent implements OnInit {
 
+  p: number = 1;
+  collection: any[]
+
   restaurants: any[] = [ { img:'img1', name:'Restaurant1', rating:'0', location:'jntu' },
     { img:'img2', name:'Restaurant2', rating:'0', location:'hitech city'},
     { img:'img3', name:'Restaurant3', rating:'0', location:'kukatpally'}];

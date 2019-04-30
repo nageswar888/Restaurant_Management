@@ -72,9 +72,8 @@
     <div class="form-group">
     <label class="image-upload-container btn btn-bwm">
       <span>Select Image</span>
-      <input type="file" accept="image/*" formControlName="image">
+      <input type="file" accept="image/*" (change)="changeListener($event)">
     </label></div>
-
 
     <div class="form-group">
       <button class="btn btn-success">Add</button>
@@ -94,7 +93,7 @@
     <div>Phone:{{getRestaurant.phone}}</div>
     <div>Email:{{getRestaurant.email}}</div>
     <div>Type:{{getRestaurant.type}}</div>
-    <div>image:{{getRestaurant.image}}</div><br>
+    <!--<div>image:{{getRestaurant.image.toString()}}</div>--><br>
   </div>
 </div>
 </div>

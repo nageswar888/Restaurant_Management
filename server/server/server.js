@@ -9,6 +9,22 @@ import Routes from "./routes/index";
 
 const app = express();
 
+/**
+ * for payload error
+ * */
+var bodyParser = require('body-parser');
+app.use(bodyParser.json({limit: '50mb', extended: true}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+
+
+
+
+/*bodyParser = {
+  json: {limit: '50mb', extended: true},
+  urlencoded: {limit: '50mb', extended: true}
+};*/
+
+
 RoutesConfig.init(app);
 //DBConfig.init();
 Routes.init(app, express.Router());

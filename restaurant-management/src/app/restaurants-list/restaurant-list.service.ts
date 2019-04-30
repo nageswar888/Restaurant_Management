@@ -19,7 +19,7 @@ export class RestaurantListService {
       );
   }
   postRestaurants(params):Observable<any>{
-
+        console.log("------service",params)
     return this.queryApi.doPost('RESTAURANTS', params)
       .pipe(
          catchError(err => of([err]))

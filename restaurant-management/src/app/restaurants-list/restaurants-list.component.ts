@@ -20,6 +20,9 @@ export class RestaurantsListComponent implements OnInit {
   public edit_res: boolean;
   public submitted = false;
   public getRestaurants: any;
+  public img: any;
+  private nag: any;
+  private value: number;
 
   add_restaurants(){
     this.add_res= true;
@@ -58,7 +61,8 @@ export class RestaurantsListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.get_restaurants()
+    this.get_restaurants();
+    this.value=5
 
     this.restaurantForm = this.formBuilder.group({
       Name: ['yuy', Validators.required],
@@ -67,7 +71,7 @@ export class RestaurantsListComponent implements OnInit {
       email: ['ytygh@gsfg.com', [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
       type: ['3 star', Validators.required],
       cuisine: [''],
-      image: ['']
+      //image: []
     });
     }
 
@@ -81,6 +85,7 @@ export class RestaurantsListComponent implements OnInit {
       return;
     }
     else{
+      formdata.image = this.img
       this.post_restaurants(formdata)
     }
   }
@@ -88,21 +93,32 @@ export class RestaurantsListComponent implements OnInit {
   get_restaurants(){
     this.restaurant.getRestaurants().subscribe((responce) => {
       this.getRestaurants = responce.rows
-     /* console.log("--------restaurants",this.getRestaurants)*/
+      console.log("--------restaurants",this.getRestaurants)
     }, () => {})
   }
 
   post_restaurants(formdata){
     console.log("---------form data",formdata)
     this.restaurant.postRestaurants(formdata).subscribe((responce) => {
-      console.log("--------restaurants",responce)
+      //console.log("--------after adding restaurants",responce)
     }, () => {})
   }
 
-  delete_Restaurants(value){
-    alert(value)
-   /* this.restaurant.postRestaurants(value).subscribe((responce) => {
-      console.log("--------restaurants",responce)
-    }, () => {})*/
+  changeListener($event) : void {
+    this.readThis($event.target);
   }
+
+  readThis(inputValue: any): void {
+    var file:File = inputValue.files[0];
+    var myReader:FileReader = new FileReader();
+    myReader.onloadend = (e) => {
+      this.img = myReader.result;
+      console.log("----------",this.img)
+    }
+    myReader.readAsDataURL(file);
+  }
+
+
+
+
 }

@@ -14,7 +14,7 @@ export class ViewUserComponent implements OnInit {
 
   ngOnInit() {
 
-      this.Registration.getting().subscribe( (responce) =>{
+      this.Registration.getting_user().subscribe( (responce) =>{
         console.log("----------getting",responce)
         this.users = responce.rows
       },() =>{},

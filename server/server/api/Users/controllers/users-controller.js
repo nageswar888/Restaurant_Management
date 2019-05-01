@@ -22,4 +22,11 @@ export class usersController {
       .catch(error => res.status(400).json(error));
   }
 
+  static getByEmail(req, res) {
+    let paramet = req.params.id
+    usersDao.getByEmail(paramet)
+      .then(uses => res.status(200).json(uses))
+      .catch(error => res.status(400).json(error));
+  }
+
 }

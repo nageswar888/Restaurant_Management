@@ -8,6 +8,7 @@ export class userRoutes {
 
     router.route('/user/:id')
     .delete(usersController.delete)
+      .get(usersController.getByEmail)
 
   }
   }

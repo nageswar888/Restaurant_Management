@@ -1,20 +1,20 @@
 import { environment } from './../../../environments/environment';
-export const POSTUSER = 'POSTUSER';
 export const USER = 'USER';
 export const RESTAURANTS = 'RESTAURANTS';
+export const USERBYEMAIL = 'USERBYEMAIL'
 
 export const UserEndPoint = (type:string,params:any)=> {
- console.log("---------userEndpoint")
+ //console.log("---------userEndpoint")
   switch (type) {
-
-    case POSTUSER:
-      return environment.API_ROOT + 'user/';
 
     case USER:
       return environment.API_ROOT + 'user/';
 
     case RESTAURANTS:
       return environment.API_ROOT + 'restaurants/';
+
+    case USERBYEMAIL:
+      return environment.API_ROOT + 'user/'+ params;
 
 
   }

@@ -45,4 +45,17 @@ export class usersDao {
     });
   }
 
+  static getByEmail(paramet) {
+    console.log("////////////",paramet)
+    return new Promise((resolve, reject) => {
+      models.users.findAll({where: {email: paramet}})
+        .then(users => {
+          resolve(users);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
+
 }

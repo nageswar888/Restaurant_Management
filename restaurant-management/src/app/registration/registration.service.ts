@@ -13,18 +13,26 @@ export class RegistrationService {
 
   PostUser(params):Observable<any>{
     console.log("object in service-----",params)
-    return this.queryApi.doPost('POSTUSER',params)
+    return this.queryApi.doPost('USER',params)
       .pipe(
         catchError(err => of([err]))
       );
   }
 
-  getting():Observable<any>{
+  getting_user():Observable<any>{
     let params
     return this.queryApi.doGet('USER',params)
       .pipe(
         catchError(err => of([err]))
       );
+  }
+
+  get_user_email(params):Observable<any>{
+    return this.queryApi.doGet('USERBYEMAIL',params)
+      .pipe(
+        catchError(err => of([err]))
+      );
+
   }
 
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {RegistrationService} from "../registration/registration.service";
 import {Router} from '@angular/router';
-
+import { LocalStorage } from '@ngx-pwa/local-storage';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private registration: RegistrationService,
-    private route:Router
+    private route:Router,
+    private localstorage:LocalStorage
   ) { }
 
   ngOnInit() {
@@ -42,6 +43,8 @@ export class LoginComponent implements OnInit {
     let email = formdata.email
     this.registration.get_user_email(email).subscribe((responce) => {
         this.users = responce
+        this.localstorage.setItem('user',  this.users).subscribe(() => {});
+
         if (this.users) {
           console.log("-------------",this.users[0].email,"---",this.users[0].password)
           if ((formdata.email == this.users[0].email) && (formdata.password == this.users[0].password)) {

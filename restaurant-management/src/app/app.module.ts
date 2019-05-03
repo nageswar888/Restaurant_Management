@@ -19,7 +19,6 @@ import {QueryApi} from "./commonservice/request/QueryApi";
 import {HttpClientModule} from "@angular/common/http";
 import {NgxPaginationModule} from 'ngx-pagination';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +38,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     FilterPipeModule,
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
   ],
   providers: [QueryApi],
   bootstrap: [AppComponent]

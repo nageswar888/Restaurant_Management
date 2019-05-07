@@ -13,9 +13,9 @@ export class ViewProfileComponent implements OnInit {
 
   ngOnInit() {
     this.localstorage.getItem('user').subscribe((user) => {
-      console.log("-------local storage",user)
+      //console.log("-------local storage",user)
       this.loggedUser = user
-      console.log(this.loggedUser[0].firstName)
+      //console.log(this.loggedUser[0].firstName)
     });
   }
 

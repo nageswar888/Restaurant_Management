@@ -87,14 +87,27 @@
 <div *ngIf ="view_res">
   view_restaurant
 <div *ngIf="getRestaurants">
-  <div *ngFor="let getRestaurant of getRestaurants">
-    <div>Name:{{getRestaurant.Name}}</div>
-    <div>Location:{{getRestaurant.Location}}</div>
-    <div>Phone:{{getRestaurant.phone}}</div>
-    <div>Email:{{getRestaurant.email}}</div>
-    <div>Type:{{getRestaurant.type}}</div>
-    <!--<div>image:{{getRestaurant.image.toString()}}</div>--><br>
-  </div>
+  <table class="table">
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Type</th>
+    </tr>
+    </thead>
+    <tbody>
+  <tr *ngFor="let getRestaurant of getRestaurants">
+      <td>{{getRestaurant.Name}}</td>
+      <td>{{getRestaurant.Location}}</td>
+      <td>{{getRestaurant.phone}}</td>
+      <td>{{getRestaurant.email}}</td>
+      <td>{{getRestaurant.type}}</td>
+    <!--<div>image:{{getRestaurant.image.toString()}}</div>-->
+    </tr>
+    </tbody>
+  </table>
 </div>
 </div>
 

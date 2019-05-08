@@ -19,5 +19,10 @@ export class QueryApi {
     return this.http.post(url, params );
   }
 
+  doDelete(url: any, params: any) {
+    url = UserEndPoint(url, params)
+    return this.http.delete(url, params)
+  }
+
 
 }

@@ -2,6 +2,11 @@
 <div id="size">
 <div class="container">
   <h2>Register</h2>
+<div *ngIf="alert">
+  <div class="alert alert-success">
+    <strong>Successfully registered!</strong>
+  </div>
+</div>
 
   <form [formGroup]="registerForm" (ngSubmit)="submit(registerForm.value)">
   <div class="form-group">

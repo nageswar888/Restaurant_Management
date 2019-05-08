@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RestaurantListService } from "./restaurant-list.service";
-import {v} from "@angular/core/src/render3";
 
 
 @Component({
@@ -12,49 +11,35 @@ import {v} from "@angular/core/src/render3";
 export class RestaurantsListComponent implements OnInit {
 
   public restaurantForm:FormGroup;
-  public deleteForm:FormGroup
 
-  public view_res: boolean;
-  public delet_res: boolean;
-  public add_res: boolean;
+  public view_res: boolean = true;
+  public add_res: boolean ;
   public edit_res: boolean;
   public submitted = false;
   public getRestaurants: any;
   public img: any;
-  private nag: any;
-  private value: number;
+  public add_rest_alert = false
+  public restaurantId
 
   add_restaurants(){
     this.add_res= true;
-    this.delet_res = false;
     this.edit_res= false;
     this.view_res=false;
   }
 
   view_restaurants(){
     this.add_res= false;
-    this.delet_res = false;
     this.edit_res= false;
     this.view_res=true;
   }
 
-  delete_restaurants(){
-    this.add_res= false;
-    this.delet_res = true;
-    this.edit_res= false;
-    this.view_res=false;
-  }
 
   edit_restaurants(){
     this.add_res= false;
-    this.delet_res = false;
     this.edit_res= true;
     this.view_res=false;
   }
 
-  rest_delete(){
-    alert("deleted");
-  }
   constructor(
     private formBuilder: FormBuilder,
     private restaurant:RestaurantListService
@@ -62,7 +47,6 @@ export class RestaurantsListComponent implements OnInit {
 
   ngOnInit() {
     this.get_restaurants();
-    this.value=5
 
     this.restaurantForm = this.formBuilder.group({
       Name: ['yuy', Validators.required],
@@ -87,6 +71,7 @@ export class RestaurantsListComponent implements OnInit {
     else{
       formdata.image = this.img
       this.post_restaurants(formdata)
+      this.add_rest_alert= true
     }
   }
 
@@ -94,6 +79,7 @@ export class RestaurantsListComponent implements OnInit {
     this.restaurant.getRestaurants().subscribe((responce) => {
       this.getRestaurants = responce.rows
       console.log("--------restaurants",this.getRestaurants)
+      //this.imageser = atob(this.getRestaurants[0].image.data)
     }, () => {})
   }
 
@@ -106,19 +92,30 @@ export class RestaurantsListComponent implements OnInit {
 
   changeListener($event) : void {
     this.readThis($event.target);
+    //console.log("---",$event.target)
   }
 
   readThis(inputValue: any): void {
     var file:File = inputValue.files[0];
+    //console.log("file is",file)
     var myReader:FileReader = new FileReader();
+    //console.log("myReader",myReader)
     myReader.onloadend = (e) => {
       this.img = myReader.result;
-      console.log("----------",this.img)
+      //console.log("----------",this.img)
     }
     myReader.readAsDataURL(file);
   }
 
+  GetRestaurantId(value){
+    this.restaurantId = value
+  }
 
-
+  deleteRestaurants(){
+    alert("alert")
+     /*this.restaurant.deleteRestaurant(this.restaurantId).subscribe( (responce) =>{
+       console.log("delete responce",responce)
+     })*/
+  }
 
 }

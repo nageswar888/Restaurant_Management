@@ -25,4 +25,12 @@ export class RestaurantListService {
          catchError(err => of([err]))
       );
   }
+
+  deleteRestaurant(params):Observable<any>{
+    console.log("------service",params)
+    return this.queryApi.doDelete('RESTAURANTDEL', params)
+      .pipe(
+        catchError(err => of([err]))
+      );
+  }
 }

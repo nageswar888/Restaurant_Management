@@ -3,3 +3,38 @@
   width: 40%;
 }
 
+#tRow:hover > #delete-icon {
+  display: inline-block;
+  cursor:pointer;
+  position: relative;
+
+}
+#tRow > #delete-icon{
+  display: none;
+}
+
+#delete-icon .tooltiptext {
+  visibility: hidden;
+  width: 50px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 1px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 0;
+  top: 80%;
+  left: 50%;
+  margin-left: -25px;
+}
+
+#delete-icon:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+
+
+

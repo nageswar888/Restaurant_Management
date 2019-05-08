@@ -18,6 +18,9 @@ export class restaurantsRoutes {
       .get(restaurantsController.getAll)
       .post(restaurantsController.createNew);
 
+    router.route('/restaurants/:id')
+      .delete(restaurantsController.delete)
+
 
   }
 }

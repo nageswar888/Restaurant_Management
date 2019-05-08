@@ -12,6 +12,7 @@ export class RegistrationComponent implements OnInit {
 
   registerForm: FormGroup;
   submitted = false;
+  public alert = false
   private formdata: any;
 
   constructor(
@@ -49,6 +50,7 @@ export class RegistrationComponent implements OnInit {
     }
     else{
       this.post_user(this.formdata)
+      this.alert=true
     }
   }
   post_user(formdata){

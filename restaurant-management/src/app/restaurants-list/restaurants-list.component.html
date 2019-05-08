@@ -1,16 +1,19 @@
 
 <button class="btn btn-primary" (click)="add_restaurants()">Add restaurants</button>&nbsp;
 <button class="btn btn-primary" (click)="view_restaurants()">View restaurants</button>&nbsp;
-<button class="btn btn-primary" (click)="delete_restaurants()">Delete restaurants</button>&nbsp;
 <button class="btn btn-primary" (click)="edit_restaurants()">Edit restaurants</button>
-
-
 
 <div class="container">
 
   <!--adding restaurants-->
   <div class="size">
 <div *ngIf="add_res">
+  <div *ngIf="add_rest_alert">
+  <div class="alert alert-success">
+    <strong>Successfully added!</strong>
+  </div>
+  </div>
+
   <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit(restaurantForm.value)">
     <div class="form-group">
       <label >Name</label>
@@ -90,32 +93,29 @@
   <table class="table">
     <thead>
     <tr>
-    <th>Name</th>
-    <th>Location</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Type</th>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Phone</th>
+      <th>Email</th>
+      <th>Type</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
-  <tr *ngFor="let getRestaurant of getRestaurants">
+  <tr *ngFor="let getRestaurant of getRestaurants" (click)="GetRestaurantId(getRestaurant.id)" id="tRow">
       <td>{{getRestaurant.Name}}</td>
       <td>{{getRestaurant.Location}}</td>
       <td>{{getRestaurant.phone}}</td>
       <td>{{getRestaurant.email}}</td>
       <td>{{getRestaurant.type}}</td>
-    <!--<div>image:{{getRestaurant.image.toString()}}</div>-->
-    </tr>
+      <td id="delete-icon" ><div (click)="deleteRestaurants()"><i class="fas fa-trash"></i>
+        <span class="tooltiptext"><small>Delete</small></span></div></td>
+  </tr>
     </tbody>
   </table>
 </div>
 </div>
 
-  <!--deleting of restaurants-->
-<div *ngIf ="delet_res">
-  <p>Enter the name of the restaurant you want to detete</p>
-    Name:<input type="text" name="firstName">
-</div>
 
   <!--edit restaurants-->
   <div class="size">
@@ -179,7 +179,6 @@
       </select>
     </div>
 
-
     <div class="form-group">
       <button class="btn btn-success">Save</button>
       <input type="reset" value="Reset" class="btn btn-link">
@@ -189,4 +188,30 @@
   </div>
 
 
+  <div class="container">
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Deleting the restaurant</h4>
+          </div>
+          <!-- Modal body -->
+          <div class="modal-body">
+            <button (click)="deleteRestaurants()">Delete</button>
+          </div>
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal" >Close modal</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 </div>
+
+
+

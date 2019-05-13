@@ -23,4 +23,12 @@ export class restaurantsController {
       .catch(error => res.status(400).json(error));
   }
 
+  static getById(req, res) {
+    let params = req.params.id
+    //console.log("----------createNew method param",_body)
+    restaurantsDao.getById(params)
+      .then(restaurants => res.status(200).json(restaurants))
+      .catch(error => res.status(400).json(error));
+  }
+
 }

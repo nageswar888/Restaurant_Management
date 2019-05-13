@@ -45,4 +45,18 @@ export class restaurantsDao {
     });
   }
 
+  static getById(params) {
+    return new Promise((resolve, reject) => {
+      models.Restaurants.findAll(
+        {where:{id: params}}
+      )
+        .then(restaurants => {
+          resolve(restaurants);
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
+  }
+
 }

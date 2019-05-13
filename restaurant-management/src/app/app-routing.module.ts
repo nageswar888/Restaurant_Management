@@ -8,6 +8,7 @@ import {RestaurantsComponent} from "./restaurants/restaurants.component";
 import {RestaurantsListComponent} from "./restaurants-list/restaurants-list.component";
 import {ViewProfileComponent} from "./view-profile/view-profile.component";
 import {ViewUserComponent} from "./view-user/view-user.component";
+import {EditRestaurantComponent} from "./edit-restaurant/edit-restaurant.component";
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'restaurants', component: RestaurantsComponent},
   { path: 'restaurants-list', component: RestaurantsListComponent},
   { path: 'view-profile', component: ViewProfileComponent},
-  { path: 'view-user', component: ViewUserComponent}
+  { path: 'view-user', component: ViewUserComponent},
+  { path: 'edit-restaurant/:id', component: EditRestaurantComponent}
 ];
 
 @NgModule({

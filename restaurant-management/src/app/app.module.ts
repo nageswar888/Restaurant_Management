@@ -18,6 +18,7 @@ import { ViewUserComponent } from './view-user/view-user.component';
 import {QueryApi} from "./commonservice/request/QueryApi";
 import {HttpClientModule} from "@angular/common/http";
 import {NgxPaginationModule} from 'ngx-pagination';
+import { EditRestaurantComponent } from './edit-restaurant/edit-restaurant.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     RestaurantsListComponent,
     ViewProfileComponent,
     ViewUserComponent,
+    EditRestaurantComponent,
   ],
   imports: [
     BrowserModule,

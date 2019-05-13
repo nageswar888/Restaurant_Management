@@ -102,14 +102,16 @@
     </tr>
     </thead>
     <tbody>
-  <tr *ngFor="let getRestaurant of getRestaurants" (click)="GetRestaurantId(getRestaurant.id)" id="tRow">
+  <tr *ngFor="let getRestaurant of getRestaurants" id="tRow">
       <td>{{getRestaurant.Name}}</td>
       <td>{{getRestaurant.Location}}</td>
       <td>{{getRestaurant.phone}}</td>
       <td>{{getRestaurant.email}}</td>
       <td>{{getRestaurant.type}}</td>
-      <td id="delete-icon" ><div (click)="deleteRestaurants()"><i class="fas fa-trash"></i>
+      <td class="delete-icon" ><div (click)="deleteRestaurants(getRestaurant.id)"><i class="fas fa-trash"></i>
         <span class="tooltiptext"><small>Delete</small></span></div></td>
+    <td class="delete-icon" ><div (click)="editRestaurant(getRestaurant.id)"><i class="far fa-edit"></i>
+      <span class="tooltiptext"><small>Edit</small></span></div></td>
   </tr>
     </tbody>
   </table>
@@ -118,6 +120,7 @@
 
 
   <!--edit restaurants-->
+<!--
   <div class="size">
 <div *ngIf ="edit_res">
   Enter the changed details
@@ -187,6 +190,7 @@
 </div>
   </div>
 
+-->
 
   <div class="container">
     <!-- The Modal -->
@@ -208,6 +212,14 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="container">
+  <div *ngIf="delete_alert">
+    <div class="alert alert-success">
+      <strong>Successfully added!</strong>
+    </div>
+  </div>
   </div>
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RestaurantListService } from "./restaurant-list.service";
-
+import { Router} from "@angular/router";
 
 @Component({
   selector: 'app-restaurants-list',
@@ -19,7 +19,7 @@ export class RestaurantsListComponent implements OnInit {
   public getRestaurants: any;
   public img: any;
   public add_rest_alert = false
-  public restaurantId
+  public delete_alert: boolean=false;
 
   add_restaurants(){
     this.add_res= true;
@@ -42,7 +42,8 @@ export class RestaurantsListComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private restaurant:RestaurantListService
+    private restaurant:RestaurantListService,
+    private router:Router
   ) { }
 
   ngOnInit() {
@@ -86,7 +87,6 @@ export class RestaurantsListComponent implements OnInit {
   post_restaurants(formdata){
     console.log("---------form data",formdata)
     this.restaurant.postRestaurants(formdata).subscribe((responce) => {
-      //console.log("--------after adding restaurants",responce)
     }, () => {})
   }
 
@@ -97,25 +97,23 @@ export class RestaurantsListComponent implements OnInit {
 
   readThis(inputValue: any): void {
     var file:File = inputValue.files[0];
-    //console.log("file is",file)
     var myReader:FileReader = new FileReader();
-    //console.log("myReader",myReader)
     myReader.onloadend = (e) => {
       this.img = myReader.result;
-      //console.log("----------",this.img)
     }
     myReader.readAsDataURL(file);
   }
 
-  GetRestaurantId(value){
-    this.restaurantId = value
+
+  deleteRestaurants(value){
+    this.delete_alert=true
+     this.restaurant.deleteRestaurant(value).subscribe( (responce) =>{
+       console.log("delete responce",responce)
+     })
   }
 
-  deleteRestaurants(){
-    alert("alert")
-     /*this.restaurant.deleteRestaurant(this.restaurantId).subscribe( (responce) =>{
-       console.log("delete responce",responce)
-     })*/
+  editRestaurant(value){
+   this.router.navigate(['/edit-restaurant', value])
   }
 
 }

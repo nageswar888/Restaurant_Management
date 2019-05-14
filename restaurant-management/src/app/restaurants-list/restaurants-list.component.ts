@@ -14,7 +14,6 @@ export class RestaurantsListComponent implements OnInit {
 
   public view_res: boolean = true;
   public add_res: boolean ;
-  public edit_res: boolean;
   public submitted = false;
   public getRestaurants: any;
   public img: any;
@@ -23,22 +22,14 @@ export class RestaurantsListComponent implements OnInit {
 
   add_restaurants(){
     this.add_res= true;
-    this.edit_res= false;
     this.view_res=false;
   }
 
   view_restaurants(){
     this.add_res= false;
-    this.edit_res= false;
     this.view_res=true;
   }
 
-
-  edit_restaurants(){
-    this.add_res= false;
-    this.edit_res= true;
-    this.view_res=false;
-  }
 
   constructor(
     private formBuilder: FormBuilder,
@@ -56,6 +47,7 @@ export class RestaurantsListComponent implements OnInit {
       email: ['ytygh@gsfg.com', [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
       type: ['3 star', Validators.required],
       cuisine: [''],
+      //image : ['']
       //image: []
     });
     }
@@ -70,7 +62,7 @@ export class RestaurantsListComponent implements OnInit {
       return;
     }
     else{
-      formdata.image = this.img
+      //formdata.image = this.img
       this.post_restaurants(formdata)
       this.add_rest_alert= true
     }
@@ -87,10 +79,11 @@ export class RestaurantsListComponent implements OnInit {
   post_restaurants(formdata){
     console.log("---------form data",formdata)
     this.restaurant.postRestaurants(formdata).subscribe((responce) => {
+      console.log("responce",responce)
     }, () => {})
   }
 
-  changeListener($event) : void {
+ /* changeListener($event) : void {
     this.readThis($event.target);
     //console.log("---",$event.target)
   }
@@ -102,7 +95,7 @@ export class RestaurantsListComponent implements OnInit {
       this.img = myReader.result;
     }
     myReader.readAsDataURL(file);
-  }
+  }*/
 
 
   deleteRestaurants(value){

@@ -41,4 +41,11 @@ export class RestaurantListService {
         catchError(err => of([err]))
       );
   }
+
+  updateRestaurant(params,id):Observable<any>{
+    return this.queryApi.doPut('RESTAURANTBYID', {params,id})
+      .pipe(
+        catchError(err => of([err]))
+      );
+  }
 }

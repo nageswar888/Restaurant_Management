@@ -24,5 +24,12 @@ export class QueryApi {
     return this.http.delete(url, params)
   }
 
+  doPut(url: any, params: any) {
+    url = UserEndPoint(url,params.id)
+    console.log("url --",url)
+    console.log("par--",params)
+
+    return this.http.put(url, params)
+  }
 
 }

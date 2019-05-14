@@ -31,4 +31,14 @@ export class restaurantsController {
       .catch(error => res.status(400).json(error));
   }
 
+  static update(req, res) {
+    let _body = req.body.params; //because the input from front end is json object contains params and id
+    let params = req.params.id   //hint: print req.body
+    //console.log("---",_body,params)
+    //console.log("----------createNew method param",_body)
+    restaurantsDao.update(_body,params)
+      .then(restaurants => res.status(200).json(restaurants))
+      .catch(error => res.status(400).json(error));
+  }
+
 }

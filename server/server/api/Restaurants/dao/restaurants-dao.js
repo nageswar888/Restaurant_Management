@@ -24,7 +24,7 @@ export class restaurantsDao {
         email: _body.email,
         type: _body.type,
         cuisine: _body.cuisine,
-        image: _body.image
+       // image: _body.image
       }).then(restaurants => {
         resolve(restaurants);
       })
@@ -56,6 +56,24 @@ export class restaurantsDao {
         .catch(error => {
           reject(error);
         });
+    });
+  }
+
+  static update(_body,paramet) {
+    //console.log("----------dao method",paramet)
+    return new Promise((resolve, reject) => {
+      models.Restaurants.update({
+        Name:_body.Name,
+        Location: _body.Location,
+        phone: _body.phone,
+        email: _body.email,
+        type: _body.type,
+        cuisine: _body.cuisine,
+        //image: _body.image
+      },{where:{id: paramet},returning: true, plain: true}).then(restaurants => {
+        resolve(restaurants);
+      })
+        .catch(error => reject(error));
     });
   }
 

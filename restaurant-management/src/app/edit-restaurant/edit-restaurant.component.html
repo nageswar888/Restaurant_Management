@@ -1,0 +1,73 @@
+
+<div class="container">
+    Enter the changed details
+  <div *ngIf="restaurant">
+    <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit(restaurantForm.value)">
+      <div class="form-group">
+        <label >Name</label>
+        <input type="text" formControlName="Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" />
+        <div *ngIf="submitted && !!f.Name.errors" class="invalid-feedback">
+          <div *ngIf="!!f.Name.errors.required">Name is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label >Location</label>
+        <input type="text"  formControlName="Location" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Location.errors }" />
+        <div *ngIf="submitted && !!f.Location.errors" class="invalid-feedback">
+          <div *ngIf="!!f.Location.errors.required"> Location is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="number"  formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+        <div *ngIf="submitted && !!f.phone.errors" class="invalid-feedback">
+          <div *ngIf="!!f.phone.errors.required">phone number is required</div>
+          <div *ngIf="!!f.phone.errors.pattern">phone number should contain max 10 number</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email"  formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+        <div *ngIf="submitted && !!f.email.errors" class="invalid-feedback">
+          <div *ngIf="!!f.email.errors.required">email is required</div>
+          <div *ngIf="!!f.email.errors.pattern">email must be valid</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Type of Restaurant</label>
+        <input type="text" formControlName="type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.type.errors }" />
+        <div *ngIf="submitted && !!f.type.errors" class="invalid-feedback">
+          <div *ngIf="!!f.type.errors.required">email is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Cuisines</label>
+        <select formControlName="cuisine" class="form-control">
+          <option value="Indian">Indian</option>
+          <option value="Punjabi">Punjabi</option>
+          <option value="South Indian">South Indian</option>
+          <option value="North Indian">North Indian</option>
+          <option value="Gujarathi">Gujarathi</option>
+          <option value="Goan">Goan</option>
+          <option value="Tamil">Tamil</option>
+          <option value="Bengali">Bengali</option>
+          <option value="Rajastani">Rajastani</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-success">Save</button>
+        <input type="reset" value="Reset" class="btn btn-link">
+      </div>
+    </form>
+  </div>
+</div>
+jfjfg
+<div *ngIf="restaurant">
+{{restaurant[0].Name}}
+</div>

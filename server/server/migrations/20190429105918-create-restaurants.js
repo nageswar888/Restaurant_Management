@@ -26,9 +26,9 @@ module.exports = {
       cuisine: {
         type: Sequelize.STRING
       },
-      image: {
+      /*image: {
         type: Sequelize.BLOB
-      },
+      },*/
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

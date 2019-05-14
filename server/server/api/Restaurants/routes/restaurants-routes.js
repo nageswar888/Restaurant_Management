@@ -10,6 +10,7 @@ export class restaurantsRoutes {
     router.route('/restaurants/:id')
       .get(restaurantsController.getById)
       .delete(restaurantsController.delete)
+      .put(restaurantsController.update)
 
 
   }

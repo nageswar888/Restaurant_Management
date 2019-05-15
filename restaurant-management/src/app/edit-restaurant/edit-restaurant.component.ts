@@ -38,7 +38,6 @@ export class EditRestaurantComponent implements OnInit {
         phone: [null, [Validators.required, Validators.pattern("^[0-9]{10}$")]],
         email: [null, [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
         type: [null, Validators.required],
-        cuisine: [''],
         address: [null, Validators.required]
         //image: []
       });
@@ -79,7 +78,6 @@ export class EditRestaurantComponent implements OnInit {
         phone: this.restaurant[0].phone,
         email: this.restaurant[0].email,
         type: this.restaurant[0].type,
-        cuisine: this.restaurant[0].cuisine,
         address: this.restaurant[0].address
       })
       //console.log("---",this.restaurant[0].Name)

@@ -6,7 +6,6 @@ module.exports = (sequelize, DataTypes) => {
     phone: DataTypes.STRING,
     email: DataTypes.STRING,
     type: DataTypes.STRING,
-    cuisine:DataTypes.STRING,
     address:DataTypes.STRING
     //image: DataTypes.BLOB
   }, {});

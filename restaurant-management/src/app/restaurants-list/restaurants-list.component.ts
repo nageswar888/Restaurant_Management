@@ -46,7 +46,6 @@ export class RestaurantsListComponent implements OnInit {
       phone: ['9951506361', [Validators.required, Validators.pattern("^[0-9]{10}$")]],
       email: ['ytygh@gsfg.com', [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
       type: ['3 star', Validators.required],
-      cuisine: [''],
       address: ['kukatpally, Hyderabad 500085', Validators.required]
       //image : ['']
       //image: []

@@ -23,9 +23,6 @@ module.exports = {
       type: {
         type: Sequelize.STRING
       },
-      cuisine: {
-        type: Sequelize.STRING
-      },
       address: {
         type:Sequelize.STRING
       },

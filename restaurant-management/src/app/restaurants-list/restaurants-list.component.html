@@ -57,21 +57,6 @@
     </div>
 
     <div class="form-group">
-      <label>Cuisines</label>
-      <select  formControlName="cuisine" class="form-control" >
-        <option value="Indian">Indian</option>
-        <option value="Punjabi">Punjabi</option>
-        <option value="South Indian">South Indian</option>
-        <option value="North Indian">North Indian</option>
-        <option value="Gujarathi">Gujarathi</option>
-        <option value="Goan">Goan</option>
-        <option value="Tamil">Tamil</option>
-        <option value="Bengali">Bengali</option>
-        <option value="Rajastani">Rajastani</option>
-      </select>
-    </div>
-
-    <div class="form-group">
       <label>Address</label>
       <textarea type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" ></textarea>
       <div *ngIf="submitted && !!f.address.errors" class="invalid-feedback">
@@ -106,7 +91,8 @@
       <th>Email</th>
       <th>Type</th>
       <th>Address</th>
-      <th></th>
+      <th>Cuisines</th>
+      <th>        </th>
     </tr>
     </thead>
     <tbody>
@@ -117,6 +103,7 @@
       <td>{{getRestaurant.email}}</td>
       <td>{{getRestaurant.type}}</td>
       <td>{{getRestaurant.address}}</td>
+    <td><div  *ngFor="let cuisine of getRestaurant.Cuisines">{{cuisine.Type}}</div></td>
       <td class="delete-icon" ><div (click)="deleteRestaurants(getRestaurant.id)"><i class="fas fa-trash"></i>
         <span class="tooltiptext"><small>Delete</small></span></div></td>
     <td class="delete-icon" ><div (click)="editRestaurant(getRestaurant.id)"><i class="far fa-edit"></i>
@@ -126,6 +113,7 @@
   </table>
 </div>
 </div>
+
 
   <div class="container">
   <div *ngIf="delete_alert">

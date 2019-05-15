@@ -16,7 +16,7 @@ export class restaurantsDao {
 
   static getAll(){
     return new Promise((resolve, reject) => {
-      models.Restaurants.findAndCountAll( {include:{model: models.Cuisines}} )
+      models.Restaurants.findAndCountAll( {include:{model: models.Cuisines, attributes:['Type']}} )
         .then(branch => { resolve(branch)})
         .catch(error => reject(error))
     })
@@ -31,7 +31,6 @@ export class restaurantsDao {
         phone: _body.phone,
         email: _body.email,
         type: _body.type,
-        cuisine: _body.cuisine,
         address: _body.address
         // image: _body.image
       }).then(restaurants => {
@@ -77,7 +76,6 @@ export class restaurantsDao {
         phone: _body.phone,
         email: _body.email,
         type: _body.type,
-        cuisine: _body.cuisine,
         address: _body.address
         //image: _body.image
       },{where:{id: paramet},returning: true, plain: true}).then(restaurants => {

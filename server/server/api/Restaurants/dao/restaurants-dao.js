@@ -2,7 +2,7 @@ import models from '../../../models';
 import Promise from 'bluebird';
 
 export class restaurantsDao {
-  static getAll() {
+  /*static getAll() {
     return new Promise((resolve, reject) => {
       models.Restaurants.findAndCountAll()
         .then(restaurants => {
@@ -12,6 +12,14 @@ export class restaurantsDao {
           reject(error);
         });
     });
+  }*/
+
+  static getAll(){
+    return new Promise((resolve, reject) => {
+      models.Restaurants.findAndCountAll( {include:{model: models.Cuisines}} )
+        .then(branch => { resolve(branch)})
+        .catch(error => reject(error))
+    })
   }
 
   static createNew(_body) {

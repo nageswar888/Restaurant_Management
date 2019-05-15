@@ -12,6 +12,10 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Restaurants.associate = function(models) {
     // associations can be defined here
+    Restaurants.belongsToMany(models.Cuisines, {
+      through: 'RestaurantCuisine',
+      foreignKey:  'RId'
+    })
   };
   return Restaurants;
 };

@@ -47,6 +47,7 @@ export class RestaurantsListComponent implements OnInit {
       email: ['ytygh@gsfg.com', [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
       type: ['3 star', Validators.required],
       cuisine: [''],
+      address: ['kukatpally, Hyderabad 500085', Validators.required]
       //image : ['']
       //image: []
     });
@@ -71,7 +72,7 @@ export class RestaurantsListComponent implements OnInit {
   get_restaurants(){
     this.restaurant.getRestaurants().subscribe((responce) => {
       this.getRestaurants = responce.rows
-      console.log("--------restaurants",this.getRestaurants)
+      console.log("--------restaurants44",this.getRestaurants)
       //this.imageser = atob(this.getRestaurants[0].image.data)
     }, () => {})
   }

@@ -61,13 +61,18 @@
       </div>
 
       <div class="form-group">
+        <label>Address</label>
+        <textarea type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" ></textarea>
+        <div *ngIf="submitted && !!f.address.errors" class="invalid-feedback">
+          <div *ngIf="!!f.address.errors.required">Address of restauarnt is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
         <button class="btn btn-success">Save</button>
         <input type="reset" value="Reset" class="btn btn-link">
       </div>
     </form>
   </div>
 </div>
-jfjfg
-<div *ngIf="restaurant">
-{{restaurant[0].Name}}
-</div>
+

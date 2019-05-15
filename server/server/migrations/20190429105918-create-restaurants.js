@@ -26,6 +26,9 @@ module.exports = {
       cuisine: {
         type: Sequelize.STRING
       },
+      address: {
+        type:Sequelize.STRING
+      },
       /*image: {
         type: Sequelize.BLOB
       },*/

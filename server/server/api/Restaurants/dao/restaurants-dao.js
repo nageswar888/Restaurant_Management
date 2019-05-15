@@ -24,7 +24,8 @@ export class restaurantsDao {
         email: _body.email,
         type: _body.type,
         cuisine: _body.cuisine,
-       // image: _body.image
+        address: _body.address
+        // image: _body.image
       }).then(restaurants => {
         resolve(restaurants);
       })
@@ -69,6 +70,7 @@ export class restaurantsDao {
         email: _body.email,
         type: _body.type,
         cuisine: _body.cuisine,
+        address: _body.address
         //image: _body.image
       },{where:{id: paramet},returning: true, plain: true}).then(restaurants => {
         resolve(restaurants);

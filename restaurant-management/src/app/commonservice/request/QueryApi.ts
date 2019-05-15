@@ -14,8 +14,8 @@ export class QueryApi {
 
   doPost(url: any, params: any) {
     url = UserEndPoint(url, params);
-    console.log("-----------url in QueryApi",url)
-    console.log("-----------params in QueryApi",params)
+   // console.log("-----------url in QueryApi",url)
+  //  console.log("-----------params in QueryApi",params)
     return this.http.post(url, params );
   }
 
@@ -26,8 +26,8 @@ export class QueryApi {
 
   doPut(url: any, params: any) {
     url = UserEndPoint(url,params.id)
-    console.log("url --",url)
-    console.log("par--",params)
+   // console.log("url --",url)
+    // console.log("par--",params)
 
     return this.http.put(url, params)
   }

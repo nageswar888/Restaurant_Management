@@ -46,7 +46,8 @@ export class RestaurantsListComponent implements OnInit {
       phone: ['9951506361', [Validators.required, Validators.pattern("^[0-9]{10}$")]],
       email: ['ytygh@gsfg.com', [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
       type: ['3 star', Validators.required],
-      address: ['kukatpally, Hyderabad 500085', Validators.required]
+      address: ['kukatpally, Hyderabad 500085', Validators.required],
+      Indian: [null, Validators.required]
       //image : ['']
       //image: []
     });
@@ -57,14 +58,14 @@ export class RestaurantsListComponent implements OnInit {
 
   onSubmit(formdata) {
     this.submitted = true;
-
     if (this.restaurantForm.invalid) {
       return;
     }
     else{
       //formdata.image = this.img
-      this.post_restaurants(formdata)
-      this.add_rest_alert= true
+     /* this.post_restaurants(formdata)
+      this.add_rest_alert= true*/
+     console.log(formdata)
     }
   }
 

@@ -43,6 +43,7 @@ export class LoginComponent implements OnInit {
     let email = formdata.email
     this.registration.get_user_email(email).subscribe((responce) => {
         this.users = responce
+      console.log("email",responce)
         this.localstorage.setItem('user',  this.users).subscribe(() => {});
 
         if (this.users) {

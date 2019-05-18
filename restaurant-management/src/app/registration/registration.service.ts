@@ -28,6 +28,7 @@ export class RegistrationService {
   }
 
   get_user_email(params):Observable<any>{
+    let nag
     return this.queryApi.doGet('USERBYEMAIL',params)
       .pipe(
         catchError(err => of([err]))

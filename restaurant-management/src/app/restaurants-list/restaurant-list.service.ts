@@ -12,7 +12,6 @@ export class RestaurantListService {
 
   getRestaurants():Observable<any>{
     let params
-    console.log("this is service")
     return this.queryApi.doGet('RESTAURANTS',params)
       .pipe(
         catchError(err => of([err]))
@@ -27,7 +26,7 @@ export class RestaurantListService {
   }
 
   postRestaurants(params):Observable<any>{
-        console.log("------service",params)
+        //console.log("------service",params)
     return this.queryApi.doPost('RESTAURANTS', params)
       .pipe(
          catchError(err => of([err]))
@@ -47,5 +46,20 @@ export class RestaurantListService {
       .pipe(
         catchError(err => of([err]))
       );
+  }
+
+  getCuisine():Observable<any>{
+    let params
+    return this.queryApi.doGet('GETCUISINE', params)
+      .pipe(
+        catchError(err => of([err]))
+      )
+  }
+
+  addRestCuisine(params):Observable<any>{
+    return this.queryApi.doPost('POSTRESCUISINE', params)
+      .pipe(
+        catchError(err => of([err]))
+      )
   }
 }

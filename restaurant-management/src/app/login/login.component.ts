@@ -26,6 +26,12 @@ export class LoginComponent implements OnInit {
       email: ['knageswar888@gmail.com', [Validators.required,Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
       password: ['nag007', [Validators.required, Validators.minLength(6)]]
     });
+
+    ///////////////////////
+
+
+
+
   }
   get f() { return this.loginForm.controls; }
 
@@ -59,8 +65,13 @@ export class LoginComponent implements OnInit {
       },
       () => {
       });
-
-
   }
+
+////////////////////////////
+
+  //dropdownList = [];
+  //dropdownSettings = {};
+
+
 
 }

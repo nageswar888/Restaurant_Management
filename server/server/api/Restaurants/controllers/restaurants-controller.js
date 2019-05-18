@@ -7,7 +7,7 @@ export class restaurantsController {
       .catch(error => res.status(400).json(error));
   }
   static createNew(req, res) {
-    console.log("----------createNew method")
+    console.log("----------createNew method in restaurant")
     let _body = req.body;
     //console.log("----------createNew method param",_body)
     restaurantsDao.createNew(_body)

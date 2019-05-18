@@ -64,11 +64,8 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <label>Cuisines</label>
-      <input type="checkbox" value="Bike" formControlName="Indian" >Indian<br>
 
-    </div>
+
 
     <!-- <div class="form-group">
     <label class="image-upload-container btn btn-bwm">
@@ -81,6 +78,15 @@
       <input type="reset" value="Reset" class="btn btn-link">
     </div>
   </form>
+
+  <label>Cuisines</label>
+  <ng-multiselect-dropdown
+    [placeholder]="'Add cuisines'"
+    [data]="Cuisines"
+    [(ngModel)]="selectedItems"
+    [settings]="dropdownSettings">
+  </ng-multiselect-dropdown>
+
 </div>
   </div>
 

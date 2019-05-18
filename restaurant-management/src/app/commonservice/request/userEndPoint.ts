@@ -3,7 +3,9 @@ export const USER = 'USER';
 export const RESTAURANTS = 'RESTAURANTS';
 export const USERBYEMAIL = 'USERBYEMAIL';
 export const RESTAURANTDEL = 'RESTAURANTDEL';
-export const RESTAURANTBYID = 'RESTAURANTBYID'
+export const RESTAURANTBYID = 'RESTAURANTBYID';
+export const GETCUISINE = 'GETCUISINE';
+export const POSTRESCUISINE = 'POSTRESCUISINE'
 
 export const UserEndPoint = (type:string,params:any)=> {
  //console.log("---------userEndpoint")
@@ -23,6 +25,12 @@ export const UserEndPoint = (type:string,params:any)=> {
 
     case USERBYEMAIL:
       return environment.API_ROOT + 'user/'+ params;
+
+    case GETCUISINE:
+      return environment.API_ROOT + 'cuisine/';
+
+    case POSTRESCUISINE:
+      return environment.API_ROOT + 'RestaurantCuisine/';
 
 
   }

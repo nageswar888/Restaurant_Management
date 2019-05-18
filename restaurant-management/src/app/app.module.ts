@@ -19,6 +19,8 @@ import {QueryApi} from "./commonservice/request/QueryApi";
 import {HttpClientModule} from "@angular/common/http";
 import {NgxPaginationModule} from 'ngx-pagination';
 import { EditRestaurantComponent } from './edit-restaurant/edit-restaurant.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { EditRestaurantComponent } from './edit-restaurant/edit-restaurant.compo
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
+    NgMultiSelectDropDownModule.forRoot()
+
   ],
   providers: [QueryApi],
   bootstrap: [AppComponent]

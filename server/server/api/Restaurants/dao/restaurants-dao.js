@@ -23,10 +23,10 @@ export class restaurantsDao {
   }
 
   static createNew(_body) {
-    console.log("----------dao method",_body)
+    console.log("----------dao method in restaurant")
     return new Promise((resolve, reject) => {
       models.Restaurants.create({
-        Name:_body.Name,
+        Name: _body.Name,
         Location: _body.Location,
         phone: _body.phone,
         email: _body.email,
@@ -34,14 +34,25 @@ export class restaurantsDao {
         address: _body.address
         // image: _body.image
       }).then(restaurants => {
-        resolve(restaurants);
+        resolve(restaurants)
+        //console.log("executing")
+        //models.Restaurants.findAndCountAll().then((result) => {resolve(result); console.log("inside",result)}).catch(error => {reject(error)})
+        //console.log("--",dataValues.id,_body.Cuisines[0].id)
+        /*console.log("hello")
+        console.log("cuisine id--",_body.Cuisine[0].id)
+        //console.log("--",restaurants)
+        //console.log("--",restaurants.Restaurants.dataValues.id)
+        models.RestaurantCuisines.create({
+          RId: 1,
+          CId: 3
+        }).then((result) => resolve(result)).catch(error => reject(error))*/
+       // console.log("after---------")
       })
         .catch(error => reject(error));
     });
   }
 
   static delete(paramet) {
-    console.log("////////////",paramet)
     return new Promise((resolve, reject) => {
       models.Restaurants.destroy({where: {id: paramet}})
         .then(restaurants => {

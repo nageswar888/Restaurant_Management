@@ -19,6 +19,7 @@ export class RestaurantsListComponent implements OnInit {
   public img: any;
   public add_rest_alert = false
   public delete_alert: boolean=false;
+  public Cuisines
 
   add_restaurants(){
     this.add_res= true;
@@ -39,6 +40,7 @@ export class RestaurantsListComponent implements OnInit {
 
   ngOnInit() {
     this.get_restaurants();
+    this.getCuisines()
 
     this.restaurantForm = this.formBuilder.group({
       Name: ['yuy', Validators.required],
@@ -47,9 +49,7 @@ export class RestaurantsListComponent implements OnInit {
       email: ['ytygh@gsfg.com', [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
       type: ['3 star', Validators.required],
       address: ['kukatpally, Hyderabad 500085', Validators.required],
-      Indian: [null, Validators.required]
-      //image : ['']
-      //image: []
+
     });
     }
 
@@ -57,14 +57,15 @@ export class RestaurantsListComponent implements OnInit {
 
 
   onSubmit(formdata) {
+    formdata.Cuisine = this.selectedItems,
     this.submitted = true;
     if (this.restaurantForm.invalid) {
       return;
     }
     else{
       //formdata.image = this.img
-     /* this.post_restaurants(formdata)
-      this.add_rest_alert= true*/
+      this.post_restaurants(formdata)
+      this.add_rest_alert= true
      console.log(formdata)
     }
   }
@@ -72,15 +73,17 @@ export class RestaurantsListComponent implements OnInit {
   get_restaurants(){
     this.restaurant.getRestaurants().subscribe((responce) => {
       this.getRestaurants = responce.rows
-      console.log("--------restaurants44",this.getRestaurants)
+      //console.log("--------restaurants44",this.getRestaurants)
       //this.imageser = atob(this.getRestaurants[0].image.data)
     }, () => {})
   }
 
   post_restaurants(formdata){
-    console.log("---------form data",formdata)
+    //console.log("---------form data",formdata)
     this.restaurant.postRestaurants(formdata).subscribe((responce) => {
-      console.log("responce",responce)
+      console.log("responce getting---------",responce)
+      formdata.RId = responce.id
+      this.restaurant.addRestCuisine(formdata).subscribe( (res) => {console.log("res--->",res)})
     }, () => {})
   }
 
@@ -109,5 +112,24 @@ export class RestaurantsListComponent implements OnInit {
   editRestaurant(value){
    this.router.navigate(['/edit-restaurant', value])
   }
+
+  //add Cuisine
+  getCuisines(){
+    this.restaurant.getCuisine().subscribe((responce) =>{
+      //console.log(responce)
+      this.Cuisines = responce
+
+    })
+  }
+  public selectedItems = [];
+  dropdownSettings = {
+    singleSelection: false,
+    idField: 'id',
+    textField: 'Type',
+    selectAllText: 'Select All',
+    unSelectAllText: 'UnSelect All',
+    itemsShowLimit: 3,
+    allowSearchFilter: true
+  };
 
 }

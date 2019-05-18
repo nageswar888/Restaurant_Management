@@ -3,8 +3,9 @@ import models from '../../../models';
 
 export class cuisineDao {
   static getAll() {
+    console.log("dao")
     return new Promise((resolve, reject) => {
-      models.Cuisines.findAndCountAll()
+      models.Cuisines.findAll({attributes:['id','Type']})
         .then(users => {
           resolve(users);
         })

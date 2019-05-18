@@ -10,6 +10,7 @@ export class RestaurantCuisineController {
 
   static create(req, res){
     let _body = req.body
+    console.log("controller in resCus")
     RestaurantCuisineDao.create(_body)
       .then(restaurants => res.status(200).json(restaurants))
       .catch(error => res.status(400).json(error));

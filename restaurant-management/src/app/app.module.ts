@@ -22,6 +22,7 @@ import { EditRestaurantComponent } from './edit-restaurant/edit-restaurant.compo
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import {NgFlashMessagesModule} from "ng-flash-messages";
 import { BookingComponent } from './booking/booking.component';
+import {NgDatepickerModule} from "ng2-datepicker";
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import { BookingComponent } from './booking/booking.component';
     NgxPaginationModule,
     NgMultiSelectDropDownModule.forRoot(),
     NgFlashMessagesModule.forRoot(),
-
+    NgDatepickerModule
 
   ],
   providers: [QueryApi],

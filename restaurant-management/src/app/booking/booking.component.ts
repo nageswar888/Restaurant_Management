@@ -11,9 +11,16 @@ export class BookingComponent implements OnInit {
 
   public id: number;
   public Restaurant: any;
+  //public date: Date
+
+  public minDate: Date = new Date ("05/07/2017");
+  public maxDate: Date = new Date ("05/27/2017");
+  public value: Date = new Date ("05/16/2017");
+
 
   constructor(private restaurantListService:RestaurantListService,
-              private route:ActivatedRoute) { }
+              private route:ActivatedRoute) {  //this.date = new Date()
+     }
 
   ngOnInit() {
     this.getId()

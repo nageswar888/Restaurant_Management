@@ -1,6 +1,6 @@
-
+<br>
 <div class="container">
-    Enter the changed details
+  Edit the fields where you want the changes
   <div *ngIf="restaurant">
     <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit(restaurantForm.value)">
       <div class="form-group">
@@ -37,6 +37,16 @@
         </div>
       </div>
 
+      <!--<div class="form-group">
+        <label>Cuisines</label>
+        <ng-multiselect-dropdown
+          [placeholder]="'Add cuisines'"
+          formControlName="Cuisine"
+          [data]="Cuisines"
+          [settings]="dropdownSettings">
+        </ng-multiselect-dropdown>
+      </div>
+-->
       <div class="form-group">
         <label>Type of Restaurant</label>
         <input type="text" formControlName="type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.type.errors }" />

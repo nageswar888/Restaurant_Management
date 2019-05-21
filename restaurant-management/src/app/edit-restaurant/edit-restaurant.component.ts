@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RestaurantListService} from "../restaurants-list/restaurant-list.service";
-import { ActivatedRoute} from "@angular/router";
-import {Observable} from "rxjs";
-import { LocalStorage } from '@ngx-pwa/local-storage';
-import update from "@angular/cli/commands/update";
+import {ActivatedRoute, Router} from "@angular/router";
 
 
 @Component({
@@ -19,26 +16,30 @@ export class EditRestaurantComponent implements OnInit {
   private sub: any;
   private id: number;
   public restaurant: any;
+  public Cuisines: any;
 
 
   constructor( private formBuilder: FormBuilder,
                private ResService: RestaurantListService,
-               private router:ActivatedRoute) {
+               private router:ActivatedRoute,
+               private Route : Router) {
 
     this.getId()
     this.getRestaurant(this.id)
+
   }
 
   ngOnInit() {
-     //console.log("11111",this.restaurant[0].Name)
-
-      this.restaurantForm = this.formBuilder.group({
+    //this.getCuisines()
+    this.restaurantForm = this.formBuilder.group({
         Name: [null, Validators.required],
         Location: [null, Validators.required],
         phone: [null, [Validators.required, Validators.pattern("^[0-9]{10}$")]],
         email: [null, [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
         type: [null, Validators.required],
-        address: [null, Validators.required]
+        address: [null, Validators.required],
+        //Cuisine: [null, Validators.required]
+
         //image: []
       });
   }
@@ -58,19 +59,26 @@ export class EditRestaurantComponent implements OnInit {
     if (this.restaurantForm.invalid) {
       return;
     }
-    console.log(formdata)
-    //formdata.id= this.id
     this.updateRestaurant(formdata,this.id)
+    //this.Route.navigate(['/restaurants-list'])
     }
 
   updateRestaurant(data,id){
-    console.log("-----------",data)
-    return this.ResService.updateRestaurant(data,id).subscribe((responce) =>{console.log("res update",responce)})
+    console.log("-----------data",data)
+    return this.ResService.updateRestaurant(data,id).subscribe((responce) =>{
+      console.log("res update",responce)
+     /* data.RId = responce[1].id
+      console.log(data.RId)
+      this.ResService.addRestCuisine(data).subscribe( (res) => {
+        console.log("res--->",res)
+      })*/
+    })
   }
 
     getRestaurant(id){
     this.ResService.getRes(id).subscribe( (responce) =>{
       this.restaurant= responce
+      console.log("--",this.restaurant)
 
       this.restaurantForm.setValue({
         Name: this.restaurant[0].Name,
@@ -78,10 +86,27 @@ export class EditRestaurantComponent implements OnInit {
         phone: this.restaurant[0].phone,
         email: this.restaurant[0].email,
         type: this.restaurant[0].type,
-        address: this.restaurant[0].address
+        address: this.restaurant[0].address,
+        //Cuisine: this.restaurant[0].Cuisines
       })
-      //console.log("---",this.restaurant[0].Name)
     })
-
   }
+
+  //add Cuisine
+  getCuisines(){
+    this.ResService.getCuisine().subscribe((responce) =>{
+      this.Cuisines = responce
+      //console.log(this.Cuisines)
+    })
+  }
+
+  dropdownSettings = {
+    singleSelection: false,
+    idField: 'id',
+    textField: 'Type',
+    selectAllText: 'Select All',
+    unSelectAllText: 'UnSelect All',
+    itemsShowLimit: 3,
+    allowSearchFilter: true
+  };
 }

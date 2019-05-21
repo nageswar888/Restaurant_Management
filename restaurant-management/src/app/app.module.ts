@@ -20,6 +20,8 @@ import {HttpClientModule} from "@angular/common/http";
 import {NgxPaginationModule} from 'ngx-pagination';
 import { EditRestaurantComponent } from './edit-restaurant/edit-restaurant.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import {NgFlashMessagesModule} from "ng-flash-messages";
+import { BookingComponent } from './booking/booking.component';
 
 
 @NgModule({
@@ -33,6 +35,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     ViewProfileComponent,
     ViewUserComponent,
     EditRestaurantComponent,
+    BookingComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     FormsModule,
     HttpClientModule,
     NgxPaginationModule,
-    NgMultiSelectDropDownModule.forRoot()
+    NgMultiSelectDropDownModule.forRoot(),
+    NgFlashMessagesModule.forRoot()
 
   ],
   providers: [QueryApi],

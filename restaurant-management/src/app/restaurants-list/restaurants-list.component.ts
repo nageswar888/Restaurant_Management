@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RestaurantListService } from "./restaurant-list.service";
 import { Router} from "@angular/router";
+import {NgFlashMessageService} from "ng-flash-messages";
 
 @Component({
   selector: 'app-restaurants-list',
@@ -17,7 +18,6 @@ export class RestaurantsListComponent implements OnInit {
   public submitted = false;
   public getRestaurants: any;
   public img: any;
-  public add_rest_alert = false
   public delete_alert: boolean=false;
   public Cuisines
 
@@ -35,10 +35,12 @@ export class RestaurantsListComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private restaurant:RestaurantListService,
-    private router:Router
+    private router:Router,
+    private ngflashmsg: NgFlashMessageService
   ) { }
 
   ngOnInit() {
+
     this.get_restaurants();
     this.getCuisines()
 
@@ -46,10 +48,10 @@ export class RestaurantsListComponent implements OnInit {
       Name: ['yuy', Validators.required],
       Location: ['yujh', Validators.required],
       phone: ['9951506361', [Validators.required, Validators.pattern("^[0-9]{10}$")]],
-      email: ['ytygh@gsfg.com', [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
+      email: ['ytygh@gmail.com', [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
       type: ['3 star', Validators.required],
       address: ['kukatpally, Hyderabad 500085', Validators.required],
-
+      Cuisine: [null, Validators.required]
     });
     }
 
@@ -57,7 +59,6 @@ export class RestaurantsListComponent implements OnInit {
 
 
   onSubmit(formdata) {
-    formdata.Cuisine = this.selectedItems,
     this.submitted = true;
     if (this.restaurantForm.invalid) {
       return;
@@ -65,16 +66,14 @@ export class RestaurantsListComponent implements OnInit {
     else{
       //formdata.image = this.img
       this.post_restaurants(formdata)
-      this.add_rest_alert= true
+      this.view_restaurants()
      console.log(formdata)
     }
   }
 
   get_restaurants(){
     this.restaurant.getRestaurants().subscribe((responce) => {
-      this.getRestaurants = responce.rows
-      //console.log("--------restaurants44",this.getRestaurants)
-      //this.imageser = atob(this.getRestaurants[0].image.data)
+      this.getRestaurants = responce.rows //this.imageser = atob(this.getRestaurants[0].image.data)
     }, () => {})
   }
 
@@ -83,7 +82,10 @@ export class RestaurantsListComponent implements OnInit {
     this.restaurant.postRestaurants(formdata).subscribe((responce) => {
       console.log("responce getting---------",responce)
       formdata.RId = responce.id
-      this.restaurant.addRestCuisine(formdata).subscribe( (res) => {console.log("res--->",res)})
+      this.restaurant.addRestCuisine(formdata).subscribe( (res) => {
+        console.log("res--->",res)
+        this.get_restaurants()
+      })
     }, () => {})
   }
 
@@ -106,6 +108,14 @@ export class RestaurantsListComponent implements OnInit {
     this.delete_alert=true
      this.restaurant.deleteRestaurant(value).subscribe( (responce) =>{
        console.log("delete responce",responce)
+       this.get_restaurants()
+
+       this.ngflashmsg.showFlashMessage({
+         messages: ['<b>deleted successfully</b>'],
+         timeout : 2000,
+         dismissible: true,
+         type: 'success'
+       });
      })
   }
 
@@ -116,12 +126,10 @@ export class RestaurantsListComponent implements OnInit {
   //add Cuisine
   getCuisines(){
     this.restaurant.getCuisine().subscribe((responce) =>{
-      //console.log(responce)
       this.Cuisines = responce
-
     })
   }
-  public selectedItems = [];
+
   dropdownSettings = {
     singleSelection: false,
     idField: 'id',

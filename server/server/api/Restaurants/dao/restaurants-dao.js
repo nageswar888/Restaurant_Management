@@ -35,18 +35,7 @@ export class restaurantsDao {
         // image: _body.image
       }).then(restaurants => {
         resolve(restaurants)
-        //console.log("executing")
-        //models.Restaurants.findAndCountAll().then((result) => {resolve(result); console.log("inside",result)}).catch(error => {reject(error)})
-        //console.log("--",dataValues.id,_body.Cuisines[0].id)
-        /*console.log("hello")
-        console.log("cuisine id--",_body.Cuisine[0].id)
-        //console.log("--",restaurants)
-        //console.log("--",restaurants.Restaurants.dataValues.id)
-        models.RestaurantCuisines.create({
-          RId: 1,
-          CId: 3
-        }).then((result) => resolve(result)).catch(error => reject(error))*/
-       // console.log("after---------")
+
       })
         .catch(error => reject(error));
     });
@@ -67,7 +56,7 @@ export class restaurantsDao {
   static getById(params) {
     return new Promise((resolve, reject) => {
       models.Restaurants.findAll(
-        {where:{id: params}}
+        {where:{id: params},include:{model: models.Cuisines, attributes:['id','Type']}}
       )
         .then(restaurants => {
           resolve(restaurants);

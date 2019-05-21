@@ -1,142 +1,128 @@
 
 <button class="btn btn-primary" (click)="add_restaurants()">Add restaurants</button>&nbsp;
-<button class="btn btn-primary" (click)="view_restaurants()">View restaurants</button>&nbsp;
+<button class="btn btn-primary" (click)="view_restaurants()">View restaurants</button>
 
 <div class="container">
-
+  <br>
   <!--adding restaurants-->
   <div class="size">
-<div *ngIf="add_res">
-  <div *ngIf="add_rest_alert">
-  <div class="alert alert-success">
-    <strong>Successfully added!</strong>
-  </div>
-  </div>
+    <div *ngIf="add_res">
+      <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit(restaurantForm.value)">
+        <div class="form-group">
+          <label >Name</label>
+          <input type="text" formControlName="Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" />
+          <div *ngIf="submitted && !!f.Name.errors" class="invalid-feedback">
+            <div *ngIf="!!f.Name.errors.required">Name is required</div>
+          </div>
+        </div>
 
-  <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit(restaurantForm.value)">
-    <div class="form-group">
-      <label >Name</label>
-      <input type="text" formControlName="Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Name.errors }" />
-      <div *ngIf="submitted && !!f.Name.errors" class="invalid-feedback">
-        <div *ngIf="!!f.Name.errors.required">Name is required</div>
-      </div>
+        <div class="form-group">
+          <label >Location</label>
+          <input type="text" formControlName="Location" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Location.errors }" />
+          <div *ngIf="submitted && !!f.Location.errors" class="invalid-feedback">
+            <div *ngIf="!!f.Location.errors.required"> Location is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="number" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
+          <div *ngIf="submitted && !!f.phone.errors" class="invalid-feedback">
+            <div *ngIf="!!f.phone.errors.required">phone number is required</div>
+            <div *ngIf="!!f.phone.errors.pattern">phone number should contain max 10 number</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+          <div *ngIf="submitted && !!f.email.errors" class="invalid-feedback">
+            <div *ngIf="!!f.email.errors.required">email is required</div>
+            <div *ngIf="!!f.email.errors.pattern">email must be valid</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Cuisines</label>
+          <ng-multiselect-dropdown
+            [placeholder]="'Add cuisines'"
+            formControlName="Cuisine"
+            [data]="Cuisines"
+            [settings]="dropdownSettings">
+          </ng-multiselect-dropdown>
+        </div>
+
+        <div class="form-group">
+          <label>Type of Restaurant</label>
+          <input type="text" formControlName="type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.type.errors }" />
+          <div *ngIf="submitted && !!f.type.errors" class="invalid-feedback">
+            <div *ngIf="!!f.type.errors.required">type of restauarnt is required</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Address</label>
+          <textarea type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" ></textarea>
+          <div *ngIf="submitted && !!f.address.errors" class="invalid-feedback">
+            <div *ngIf="!!f.address.errors.required">Address of restauarnt is required</div>
+          </div>
+        </div>
+
+        <!-- <div class="form-group">
+        <label class="image-upload-container btn btn-bwm">
+          <span>Select Image</span>
+          <input type="file" accept="image/*" (change)="changeListener($event)" formControlName="image" class="form-control">
+        </label></div>
+    -->
+        <div class="form-group">
+          <button class="btn btn-success">Add</button>
+          <input type="reset" value="Reset" class="btn btn-link">
+        </div>
+      </form>
+
     </div>
-
-    <div class="form-group">
-      <label >Location</label>
-      <input type="text" formControlName="Location" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.Location.errors }" />
-      <div *ngIf="submitted && !!f.Location.errors" class="invalid-feedback">
-        <div *ngIf="!!f.Location.errors.required"> Location is required</div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label>Phone Number</label>
-      <input type="number" formControlName="phone" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.phone.errors }" />
-      <div *ngIf="submitted && !!f.phone.errors" class="invalid-feedback">
-        <div *ngIf="!!f.phone.errors.required">phone number is required</div>
-        <div *ngIf="!!f.phone.errors.pattern">phone number should contain max 10 number</div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label>Email</label>
-      <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-      <div *ngIf="submitted && !!f.email.errors" class="invalid-feedback">
-        <div *ngIf="!!f.email.errors.required">email is required</div>
-        <div *ngIf="!!f.email.errors.pattern">email must be valid</div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label>Type of Restaurant</label>
-      <input type="text" formControlName="type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.type.errors }" />
-      <div *ngIf="submitted && !!f.type.errors" class="invalid-feedback">
-        <div *ngIf="!!f.type.errors.required">type of restauarnt is required</div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label>Address</label>
-      <textarea type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" ></textarea>
-      <div *ngIf="submitted && !!f.address.errors" class="invalid-feedback">
-        <div *ngIf="!!f.address.errors.required">Address of restauarnt is required</div>
-      </div>
-    </div>
-
-
-
-
-    <!-- <div class="form-group">
-    <label class="image-upload-container btn btn-bwm">
-      <span>Select Image</span>
-      <input type="file" accept="image/*" (change)="changeListener($event)" formControlName="image" class="form-control">
-    </label></div>
--->
-    <div class="form-group">
-      <button class="btn btn-success">Add</button>
-      <input type="reset" value="Reset" class="btn btn-link">
-    </div>
-  </form>
-
-  <label>Cuisines</label>
-  <ng-multiselect-dropdown
-    [placeholder]="'Add cuisines'"
-    [data]="Cuisines"
-    [(ngModel)]="selectedItems"
-    [settings]="dropdownSettings">
-  </ng-multiselect-dropdown>
-
-</div>
   </div>
 
   <!--viewing of restaurants-->
-<div *ngIf ="view_res">
-  view_restaurant
-<div *ngIf="getRestaurants">
-  <table class="table">
-    <thead>
-    <tr>
-      <th>Name</th>
-      <th>Location</th>
-      <th>Phone</th>
-      <th>Email</th>
-      <th>Type</th>
-      <th>Address</th>
-      <th>Cuisines</th>
-      <th>        </th>
-    </tr>
-    </thead>
-    <tbody>
-  <tr *ngFor="let getRestaurant of getRestaurants" id="tRow">
-      <td>{{getRestaurant.Name}}</td>
-      <td>{{getRestaurant.Location}}</td>
-      <td>{{getRestaurant.phone}}</td>
-      <td>{{getRestaurant.email}}</td>
-      <td>{{getRestaurant.type}}</td>
-      <td>{{getRestaurant.address}}</td>
-    <td><div  *ngFor="let cuisine of getRestaurant.Cuisines">{{cuisine.Type}}</div></td>
-      <td class="delete-icon" ><div (click)="deleteRestaurants(getRestaurant.id)"><i class="fas fa-trash"></i>
-        <span class="tooltiptext"><small>Delete</small></span></div></td>
-    <td class="delete-icon" ><div (click)="editRestaurant(getRestaurant.id)"><i class="far fa-edit"></i>
-      <span class="tooltiptext"><small>Edit</small></span></div></td>
-  </tr>
-    </tbody>
-  </table>
-</div>
-</div>
-
-
-  <div class="container">
-  <div *ngIf="delete_alert">
-    <div class="alert alert-success">
-      <strong>Successfully deleted!</strong>
+  <div *ngIf ="view_res">
+    <div *ngIf="getRestaurants">
+      <table class="table table-condensed  table-hover">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Location</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Type</th>
+          <th>Address</th>
+          <th>Cuisines</th>
+          <th>        </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let getRestaurant of getRestaurants" id="tRow">
+          <td>{{getRestaurant.Name}}</td>
+          <td>{{getRestaurant.Location}}</td>
+          <td>{{getRestaurant.phone}}</td>
+          <td>{{getRestaurant.email}}</td>
+          <td>{{getRestaurant.type}}</td>
+          <td>{{getRestaurant.address}}</td>
+          <td><div  *ngFor="let cuisine of getRestaurant.Cuisines">{{cuisine.Type}}</div></td>
+          <td class="delete-icon" ><div (click)="deleteRestaurants(getRestaurant.id)"><i class="fas fa-trash"></i>
+            <span class="tooltiptext"><small>Delete</small></span></div></td>
+          <td class="delete-icon" ><div (click)="editRestaurant(getRestaurant.id)"><i class="far fa-edit"></i>
+            <span class="tooltiptext"><small>Edit</small></span></div></td>
+        </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+
+  <div class="container">
+    <ng-flash-message></ng-flash-message>
   </div>
-
-
 </div>
 
+<br><br>
 
 

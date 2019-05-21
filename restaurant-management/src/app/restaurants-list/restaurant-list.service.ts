@@ -19,6 +19,7 @@ export class RestaurantListService {
   }
 
   getRes(params):Observable<any>{
+    console.log(params)
     return this.queryApi.doGet('RESTAURANTBYID',params)
       .pipe(
         catchError(err => of([err]))

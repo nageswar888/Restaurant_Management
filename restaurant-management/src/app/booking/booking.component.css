@@ -1,0 +1,16 @@
+.btn{
+  background-color: white !important;
+  color: black !important;
+}
+.btn:hover{
+  background-color: white;
+  color: black;
+}
+.btn:active{
+  background-color: white !important;
+  color: black !important;
+}
+
+.btn:focus{
+  box-shadow: none !important;
+}

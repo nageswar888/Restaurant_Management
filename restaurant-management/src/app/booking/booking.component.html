@@ -1,3 +1,63 @@
-<p>
-  booking works!
-</p>
+<div class="container">
+<div *ngIf="Restaurant">
+  <div *ngFor="let restaurant of Restaurant">
+    <div><h1>{{restaurant.Name}}</h1></div>
+    <div>{{restaurant.Location}}</div>
+    <div>{{restaurant.address}}</div>
+    <div>{{restaurant.email}}</div>
+    <div>{{restaurant.phone}}</div>
+    <div>{{restaurant.type}}</div>
+    <span>Cuisines</span>:
+    <span *ngFor="let cuisine of restaurant.Cuisines">{{cuisine.Type}},&nbsp;</span>
+  </div>
+</div>
+</div>
+
+<!--
+<div class="container">
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+      <div role="separator" class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">Separated link</a>
+    </div>
+  </div>
+  <div class="input-group-prepend">
+  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"  aria-expanded="false">Dropdown</button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div role="separator" class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+  </div>
+</div>
+</div>
+-->
+
+<div class="container">
+  <div class="row">
+  <div> <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item">Action</a>
+      <a class="dropdown-item">Another action</a>
+      <a class="dropdown-item">Something else here</a>
+      <div role="separator" class="dropdown-divider"></div>
+      <a class="dropdown-item">Separated link</a>
+    </div></div>
+  <div> <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item">Action</a>
+      <a class="dropdown-item">Another action</a>
+      <a class="dropdown-item">Something else here</a>
+      <div role="separator" class="dropdown-divider"></div>
+      <a class="dropdown-item">Separated link</a>
+    </div>
+  </div>
+  </div>
+</div>

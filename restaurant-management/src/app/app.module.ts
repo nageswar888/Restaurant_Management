@@ -47,7 +47,8 @@ import { BookingComponent } from './booking/booking.component';
     HttpClientModule,
     NgxPaginationModule,
     NgMultiSelectDropDownModule.forRoot(),
-    NgFlashMessagesModule.forRoot()
+    NgFlashMessagesModule.forRoot(),
+
 
   ],
   providers: [QueryApi],

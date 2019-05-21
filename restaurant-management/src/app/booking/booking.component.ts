@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RestaurantListService} from "../restaurants-list/restaurant-list.service";
+import { ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-booking',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BookingComponent implements OnInit {
 
-  constructor() { }
+  public id: number;
+  public Restaurant: any;
+
+  constructor(private restaurantListService:RestaurantListService,
+              private route:ActivatedRoute) { }
 
   ngOnInit() {
+    this.getId()
+    this.getRestaurant(this.id)
+  }
+
+  getId(){
+    this.route.params.subscribe(params => {
+      this.id = +params['id'];
+    })
+  }
+
+  getRestaurant(id){
+    this.restaurantListService.getRes(id).subscribe( response => {
+      console.log("responce",response)
+      this.Restaurant = response
+    })
   }
 
 }

@@ -1,7 +1,7 @@
 <div class="container-fluid">
 <br><div class="row">
 <div class="col-md-6"></div>
-<input class="form-control col-md-4" type="search" [(ngModel)]="userFilter.name" placeholder="Search" aria-label="Search">
+<input class="form-control col-md-4" type="search" [(ngModel)]="userFilter.Name" placeholder="Search" aria-label="Search">
 
 <!-- user in the restaurant -->
 <div class="dropdown">
@@ -18,25 +18,30 @@
 <div class="container">
   <div class="row " >
     <div class="col-md-4"><app-search [value]="restaurants"></app-search></div>
-    <div class="col-md-8">
-      <div *ngFor="let restaurant of restaurants | filterBy: userFilter | paginate: { itemsPerPage: 2, currentPage: p }" >
-
-        <!-- Modal -->
-      <div class="row div1" (click)="book(restaurant.id)">
+    <div *ngIf="Restaurants" class="col-md-8">
+      <div *ngFor="let restaurant of Restaurants | filterBy: userFilter | paginate: { itemsPerPage: 2, currentPage: p }" >
+      <div class="row div1" (click)="navigate(restaurant.id)">
         <div class="col-md-5">
           <div id="image"><img src="assets/images/download.jpeg"></div></div>
         <div class="col-md-7">
-          <div>{{restaurant.name}}</div>
+          <div>{{restaurant.Name}}</div>
           <div><rating [ngModel]="3" [max]="5"
                        [readonly]="true" style="font-size: 11px;"></rating>
           </div>
-          <div>location: {{restaurant.location}}</div>
+          <div>location: {{restaurant.Location}}</div>
         </div>
       </div>
       </div>
-      <div *ngIf="(restaurants | filterBy: userFilter).length === 0">No matching elements found</div>
+      <div *ngIf="(Restaurants | filterBy: userFilter).length === 0">No matching elements found</div>
       <br><pagination-controls (pageChange)="p = $event"></pagination-controls>  <!--pagination-->
     </div>
   </div>
 </div>
 </div>
+
+
+<!--
+<div *ngFor="let res of Restaurants">
+  {{res.Name}}
+</div>
+-->

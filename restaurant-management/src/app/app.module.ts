@@ -23,6 +23,7 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import {NgFlashMessagesModule} from "ng-flash-messages";
 import { BookingComponent } from './booking/booking.component';
 import {NgDatepickerModule} from "ng2-datepicker";
+import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import {NgDatepickerModule} from "ng2-datepicker";
     NgxPaginationModule,
     NgMultiSelectDropDownModule.forRoot(),
     NgFlashMessagesModule.forRoot(),
-    NgDatepickerModule
+    NgDatepickerModule,
+    AngularDateTimePickerModule
 
   ],
   providers: [QueryApi],

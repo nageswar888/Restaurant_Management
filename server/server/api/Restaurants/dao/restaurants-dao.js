@@ -31,7 +31,10 @@ export class restaurantsDao {
         phone: _body.phone,
         email: _body.email,
         type: _body.type,
-        address: _body.address
+        address: _body.address,
+        cost: _body.cost,
+        about: _body.about,
+        amenities: _body.amenities
         // image: _body.image
       }).then(restaurants => {
         resolve(restaurants)
@@ -76,7 +79,10 @@ export class restaurantsDao {
         phone: _body.phone,
         email: _body.email,
         type: _body.type,
-        address: _body.address
+        address: _body.address,
+        cost: _body.cost,
+        about: _body.about,
+        amenities: _body.amenities
         //image: _body.image
       },{where:{id: paramet},returning: true, plain: true}).then(restaurants => {
         resolve(restaurants);

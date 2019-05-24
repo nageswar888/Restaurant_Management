@@ -15,3 +15,12 @@ i{
 .icon{
   margin-left: -25px;
 }
+  .card {
+    padding-left: 47px;
+    padding-top: 12px;
+    padding-bottom: 28px;
+  }
+
+  .focusclass:focus{
+    outline: none
+  }

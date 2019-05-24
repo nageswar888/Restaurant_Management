@@ -1,2 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+.jumbotron.jumbotron-fluid {
+  margin-bottom: 0rem !important;
+  padding-top: 40px !important;
+  padding-left: 80px !important;
+  padding-right: 80px;
+    height: 150%;
+
+}

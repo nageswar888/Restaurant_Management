@@ -13,9 +13,14 @@ export class BookingComponent implements OnInit {
   public Restaurant: any;
   //public date: Date
 
-  public minDate: Date = new Date ("05/07/2017");
-  public maxDate: Date = new Date ("05/27/2017");
-  public value: Date = new Date ("05/16/2017");
+
+  date: Date = new Date();
+  settings = {
+    bigBanner: false,
+    timePicker: false,
+    format: 'dd-MM-yyyy',
+    defaultOpen: false
+  }
 
 
   constructor(private restaurantListService:RestaurantListService,

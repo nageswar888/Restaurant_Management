@@ -48,6 +48,14 @@
       </div>
 -->
       <div class="form-group">
+        <label>Cost</label>
+        <input type="number" formControlName="cost" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.cost.errors }" />
+        <div *ngIf="submitted && !!f.cost.errors" class="invalid-feedback">
+          <div *ngIf="!!f.cost.errors.required">cost for persons is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
         <label>Type of Restaurant</label>
         <input type="text" formControlName="type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.type.errors }" />
         <div *ngIf="submitted && !!f.type.errors" class="invalid-feedback">
@@ -60,6 +68,22 @@
         <textarea type="text" formControlName="address" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address.errors }" ></textarea>
         <div *ngIf="submitted && !!f.address.errors" class="invalid-feedback">
           <div *ngIf="!!f.address.errors.required">Address of restauarnt is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Amenities</label>
+        <input type="text" formControlName="amenities" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.amenities.errors }" />
+        <div *ngIf="submitted && !!f.amenities.errors" class="invalid-feedback">
+          <div *ngIf="!!f.amenities.errors.required">amenities of restaurant is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>About</label>
+        <input type="text" formControlName="about" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.about.errors }" />
+        <div *ngIf="submitted && !!f.about.errors" class="invalid-feedback">
+          <div *ngIf="!!f.about.errors.required">write about restaurant</div>
         </div>
       </div>
 

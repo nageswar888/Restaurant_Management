@@ -1,69 +1,77 @@
-<div class="container">
-<div *ngIf="Restaurant">
-  <div *ngFor="let restaurant of Restaurant">
-    <div><h1>{{restaurant.Name}}</h1></div>
-    <div>{{restaurant.Location}}</div>
-    <div>{{restaurant.address}}</div>
-    <div>{{restaurant.email}}</div>
-    <div>{{restaurant.phone}}</div>
-    <div>{{restaurant.type}}</div>
-    <span>Cuisines</span>:
-    <span *ngFor="let cuisine of restaurant.Cuisines">{{cuisine.Type}},&nbsp;</span>
-  </div>
-</div>
-</div>
-
-<!--
-<div class="container">
-<div class="input-group mb-3">
-  <div class="input-group-prepend">
-    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item" href="#">Action</a>
-      <a class="dropdown-item" href="#">Another action</a>
-      <a class="dropdown-item" href="#">Something else here</a>
-      <div role="separator" class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">Separated link</a>
+<div class="jumbotron jumbotron-fluid">
+    <div *ngIf="Restaurant">
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="card">
+          <div class="row">
+            <div class="col-sm-5"><img src="assets/images/download.jpeg"></div>
+            <div *ngFor="let restaurant of Restaurant" class="col-sm-7">
+              <div><h3>{{restaurant.Name}}</h3></div>
+              <div>{{restaurant.Location}}</div>
+              <div>{{restaurant.type}}</div>
+              <div>&#8377; {{restaurant.cost}} <small>for two (approx.)</small></div>
+              <details >
+              <summary class="focusclass" >Cuisines:</summary>
+              <span *ngFor="let cuisine of restaurant.Cuisines">{{cuisine.Type}}, </span>
+              </details>
+            </div>
+            <div *ngIf="Restaurant"><br>
+              <div class="row">
+                <div *ngFor="let restaurant of Restaurant">
+                  <div>Address: {{restaurant.address}}</div><br>
+                  <div>Features & Amenities: {{restaurant.amenities}}</div><br>
+                  <div>About Restaurant: {{restaurant.about}}</div><br>
+                  <div>Contact me: +91 9951506361</div>
+                  <div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card">
+          <div> <i class="fas fa-envelope-square"></i> {{Restaurant[0].email}}. &nbsp;<span><i class="fas fa-phone"></i>{{Restaurant[0].phone}}</span></div>
+          <div class="row">
+            <div class="col-sm-9">
+              <h3>Book your table</h3>
+              Date
+              <angular2-date-picker [(ngModel)]="date" [settings]="settings"></angular2-date-picker>
+              <br>Time
+              <div>
+                <select class="custom-select custom-select-sm selectbox">
+                  <option disabled selected>select time</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+                <span class="icon"><i class="far fa-clock fa-lg" aria-hidden="true"></i></span>
+              </div>
+              Persons
+              <div>
+                <select class="custom-select custom-select-sm selectbox">
+                  <option disabled selected>how many persons </option>
+                  <option value="1">one</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+                <span  class="icon"><i class="fas fa-user-tie fa-lg"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="input-group-prepend">
-  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"  aria-expanded="false">Dropdown</button>
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-    <div role="separator" class="dropdown-divider"></div>
-    <a class="dropdown-item" href="#">Separated link</a>
-  </div>
-  </div>
-</div>
-</div>
--->
 
-<div class="container">
 
-  <div class="row">
-<!--
-    <ng-datepicker id="id1" [(ngModel)]="date"></ng-datepicker>
--->
-    <div> <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item">Action</a>
-      <a class="dropdown-item">Another action</a>
-      <a class="dropdown-item">Something else here</a>
-      <div role="separator" class="dropdown-divider"></div>
-      <a class="dropdown-item">Separated link</a>
-    </div></div>
-  <div> <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</button>
-    <div class="dropdown-menu">
-      <a class="dropdown-item">Action</a>
-      <a class="dropdown-item">Another action</a>
-      <a class="dropdown-item">Something else here</a>
-      <div role="separator" class="dropdown-divider"></div>
-      <a class="dropdown-item">Separated link</a>
-    </div>
-  </div>
-  </div>
+  reference: https://www.dineout.co.in/hyderabad/arena-eleven-gachibowli-west-hyderabad-51628
+
+  <!--<pre>
+  </pre>-->
 
 </div>
-fghhnf
+
+
+

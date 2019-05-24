@@ -38,6 +38,9 @@ export class EditRestaurantComponent implements OnInit {
         email: [null, [Validators.required, Validators.pattern("^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}$")]],
         type: [null, Validators.required],
         address: [null, Validators.required],
+        cost: [null, Validators.required],
+        amenities: [null, Validators.required],
+        about: [null, Validators.required]
         //Cuisine: [null, Validators.required]
 
         //image: []
@@ -87,6 +90,9 @@ export class EditRestaurantComponent implements OnInit {
         email: this.restaurant[0].email,
         type: this.restaurant[0].type,
         address: this.restaurant[0].address,
+        cost: this.restaurant[0].cost,
+        amenities: this.restaurant[0].amenities,
+        about: this.restaurant[0].about
         //Cuisine: this.restaurant[0].Cuisines
       })
     })

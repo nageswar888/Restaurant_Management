@@ -26,6 +26,15 @@ module.exports = {
       address: {
         type:Sequelize.STRING
       },
+      cost: {
+        type:Sequelize.DOUBLE
+      },
+      about: {
+        type:Sequelize.STRING
+      },
+      amenities: {
+        type:Sequelize.STRING
+      },
       /*image: {
         type: Sequelize.BLOB
       },*/

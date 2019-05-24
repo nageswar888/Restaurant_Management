@@ -1,26 +1,26 @@
-.btn{
-  background-color: white !important;
-  color: black !important;
-}
-.btn:hover{
-  background-color: white;
-  color: black;
-}
-.btn:active{
-  background-color: white !important;
-  color: black !important;
+
+  .selectbox{
+    color: #1565c0 !important;
+    border: 1px solid #1565c0 !important;
+    background: none !important;
+  }
+far fa-clock{
+  color: red !important;
+  font-size: 30px;
 }
 
-.btn:focus{
-  box-shadow: none !important;
+i{
+  color:  #1565c0;
 }
-/*
-#id1{
-  font-size: 18px !important;
-  border: 1px solid black !important;
+.icon{
+  margin-left: -25px;
 }
-*/
-input#datepicker-0 {
-  font-size: 18px !important;
-  border: 1px solid black !important;
-}
+  .card {
+    padding-left: 47px;
+    padding-top: 12px;
+    padding-bottom: 28px;
+  }
+
+  .focusclass:focus{
+    outline: none
+  }

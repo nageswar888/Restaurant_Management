@@ -2,7 +2,7 @@
     <div *ngIf="Restaurant">
       <div class="row">
         <div class="col-sm-8">
-          <div class="card">
+          <div class="card card-class">
           <div class="row">
             <div class="col-sm-5"><img src="assets/images/download.jpeg"></div>
             <div *ngFor="let restaurant of Restaurant" class="col-sm-7">
@@ -12,28 +12,34 @@
               <div>&#8377; {{restaurant.cost}} <small>for two (approx.)</small></div>
               <details >
               <summary class="focusclass" >Cuisines:</summary>
-              <span *ngFor="let cuisine of restaurant.Cuisines">{{cuisine.Type}}, </span>
+                <span *ngFor="let cuisine of restaurant.Cuisines">{{cuisine.Type}}, </span>
               </details>
             </div>
-            <div *ngIf="Restaurant"><br>
-              <div class="row">
-                <div *ngFor="let restaurant of Restaurant">
-                  <div>Address: {{restaurant.address}}</div><br>
-                  <div>Features & Amenities: {{restaurant.amenities}}</div><br>
-                  <div>About Restaurant: {{restaurant.about}}</div><br>
-                  <div>Contact me: +91 9951506361</div>
-                  <div>
+                <div class="hell"><br/>
+                    <div class="row">
+                      <div class="col-sm-3"><span class="color">Address</span></div>
+                    <div class="col-sm-9">: {{Restaurant[0].address}}</div>
+                    </div><br/>
+                    <div class="row">
+                      <div class="col-sm-3"><span class="color">Amenities</span></div>
+                      <div class="col-sm-9">: {{Restaurant[0].amenities}}</div>
+                    </div><br/>
+                    <div class="row">
+                      <div class="col-sm-3"><span class="color">About Restaurant:</span></div>
+                      <div class="col-sm-9">: {{Restaurant[0].about}}</div>
+                    </div><br/>
+                    <div class="row">
+                      <div class="col-sm-3"><span class="color">Contact me:</span></div>
+                      <div class="col-sm-9">: +91 9951506361</div>
+                    </div><br/>
                   </div>
-                </div>
-              </div>
             </div>
           </div>
           </div>
-        </div>
         <div class="col-sm-4">
+          <div class="contact"> <i class="fas fa-envelope-square"></i> {{Restaurant[0].email}}. &nbsp;<span><i class="fas fa-phone"></i>{{Restaurant[0].phone}}</span></div>
           <div class="card">
-          <div> <i class="fas fa-envelope-square"></i> {{Restaurant[0].email}}. &nbsp;<span><i class="fas fa-phone"></i>{{Restaurant[0].phone}}</span></div>
-          <div class="row">
+          <div class="row card-class">
             <div class="col-sm-9">
               <h3>Book your table</h3>
               Date
@@ -42,9 +48,9 @@
               <div>
                 <select class="custom-select custom-select-sm selectbox">
                   <option disabled selected>select time</option>
-                  <option value="1">One</option>
-                  <option value="2">Two</option>
-                  <option value="3">Three</option>
+                  <option value="1">12:00 PM</option>
+                  <option value="2">1:00 PM</option>
+                  <option value="3">2:00 PM</option>
                 </select>
                 <span class="icon"><i class="far fa-clock fa-lg" aria-hidden="true"></i></span>
               </div>
@@ -57,21 +63,25 @@
                   <option value="3">Three</option>
                 </select>
                 <span  class="icon"><i class="fas fa-user-tie fa-lg"></i></span>
+              </div><br/>
+              <div>
+                Enter details
+              <div><input type="text" name="name" placeholder="Guest name"> </div><br>
+              <div><input type=number name="mobile" placeholder="mobile number"></div><br>
+                <div (click)="showEmail()" class="cursor"> <small><i class="fas fa-plus-circle"></i> Email id (Optional)</small></div>
+                <div *ngIf="showemail"><input type="email" name="email" placeholder="email"></div><br>
+                <div (click)="showSpeacialRequest()" class="cursor"><small><i class="fas fa-plus-circle"></i> Special request (Optional)</small></div>
+                <div *ngIf="showSRequest"><input type="text" name="request" placeholder="speacial request"> </div>
               </div>
-            </div>
+              <div><br/>
+                <button (click)="alert()" class="btn btn-primary" >continue...</button>
+              </div>
+              </div>
           </div>
         </div>
         </div>
       </div>
     </div>
-
-
   reference: https://www.dineout.co.in/hyderabad/arena-eleven-gachibowli-west-hyderabad-51628
-
-  <!--<pre>
-  </pre>-->
-
 </div>
-
-
 

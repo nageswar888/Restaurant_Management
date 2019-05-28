@@ -11,8 +11,8 @@ export class BookingComponent implements OnInit {
 
   public id: number;
   public Restaurant: any;
-  //public date: Date
-
+  public showemail = false;
+  public showSRequest = false
 
   date: Date = new Date();
   settings = {
@@ -45,4 +45,15 @@ export class BookingComponent implements OnInit {
     })
   }
 
+  showEmail(){
+    this.showemail = true
+  }
+
+  showSpeacialRequest(){
+    this.showSRequest = true
+  }
+
+  alert(){
+    alert('hello')
+  }
 }

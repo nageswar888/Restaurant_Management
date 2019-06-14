@@ -13,13 +13,12 @@ export class SearchComponent implements OnInit {
   userFilter: any = { name: '',rating:'' };
 
   @Input()
-  value;
+
   restaurants: any;
 
   constructor() { }
 
   ngOnInit() {
-    this.restaurants= this.value;
 
   }
 

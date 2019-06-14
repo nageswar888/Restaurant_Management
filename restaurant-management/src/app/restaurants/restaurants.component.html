@@ -1,9 +1,10 @@
+<!--
 <div class="container-fluid">
 <br><div class="row">
 <div class="col-md-6"></div>
 <input class="form-control col-md-4" type="search" [(ngModel)]="userFilter.Name" placeholder="Search" aria-label="Search">
 
-<!-- user in the restaurant -->
+&lt;!&ndash; user in the restaurant &ndash;&gt;
 <div class="dropdown">
   <p class="dropbtn col-md-1"><i class="fas fa-user-circle fa-2x"></i></p>
   <div class="dropdown-content">
@@ -17,7 +18,7 @@
 
 <div class="container">
   <div class="row " >
-    <div class="col-md-4"><app-search [value]="restaurants"></app-search></div>
+    <div class="col-md-4"><app-search></app-search></div>
     <div *ngIf="Restaurants" class="col-md-8">
       <div *ngFor="let restaurant of Restaurants | filterBy: userFilter | paginate: { itemsPerPage: 2, currentPage: p }" >
       <div class="row div1" (click)="navigate(restaurant.id)">
@@ -33,15 +34,56 @@
       </div>
       </div>
       <div *ngIf="(Restaurants | filterBy: userFilter).length === 0">No matching elements found</div>
-      <br><pagination-controls (pageChange)="p = $event"></pagination-controls>  <!--pagination-->
+      <br><pagination-controls (pageChange)="p = $event"></pagination-controls>  &lt;!&ndash;pagination&ndash;&gt;
     </div>
   </div>
 </div>
 </div>
 
-
-<!--
-<div *ngFor="let res of Restaurants">
-  {{res.Name}}
-</div>
 -->
+
+
+
+<div class="container-fluid">
+  <br><div class="row">
+  <div class="col-md-6"></div>
+  <input class="form-control col-md-4" type="search" [(ngModel)]="userFilter.Name" placeholder="Search" aria-label="Search">
+
+  <!-- user in the restaurant -->
+  <div class="dropdown">
+    <p class="dropbtn col-md-1"><i class="fas fa-user-circle fa-2x"></i></p>
+    <div class="dropdown-content">
+      <button routerLink='/view-profile' class="btn btn-link">View profile</button>
+      <button routerLink='/restaurants-list' class="btn btn-link">Restaurants</button>
+      <button routerLink='/view-user' class="btn btn-link">View Users</button>
+      <button class="btn btn-link">Logout</button>
+    </div>
+  </div>
+</div>
+
+  <div class="container">
+    <div class="row " >
+<!--
+      <div class="col-md-4"><app-search></app-search></div>
+-->
+      <div *ngIf="Restaurants" class="col-md-12">
+        <div class="row div1">
+        <div *ngFor="let restaurant of Restaurants | filterBy: userFilter | paginate: { itemsPerPage: 2, currentPage: p }" >
+            <div class="col-md-5" (click)="navigate(restaurant.id)">
+              <div id="image"><img src="assets/images/download.jpeg"></div></div>
+            <!--<div class="col-md-7">
+              <div>{{restaurant.Name}}</div>
+              <div><rating [ngModel]="3" [max]="5"
+                           [readonly]="true" style="font-size: 11px;"></rating>
+              </div>
+              <div>location: {{restaurant.Location}}</div>
+            </div>-->
+          </div>
+        </div>
+        <div *ngIf="(Restaurants | filterBy: userFilter).length === 0">No matching elements found</div>
+        <br><pagination-controls (pageChange)="p = $event"></pagination-controls>  <!--pagination-->
+      </div>
+    </div>
+  </div>
+</div>
+

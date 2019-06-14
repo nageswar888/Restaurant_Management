@@ -1,8 +1,11 @@
 /*for size of input*/
 .size{
   width: 40%;
+  margin-left: 30%;
 }
-
+h2{
+  text-align: center;
+}
 #tRow:hover > .delete-icon {
   display: inline-block;
   cursor:pointer;

@@ -1,3 +1,4 @@
+/*
 #di{
 cursor: all-scroll;
 }
@@ -17,7 +18,7 @@ cursor: all-scroll;
   margin-top: 28px;
 }
 
-/* this is for user css in restaurants component */
+!* this is for user css in restaurants component *!
 .dropdown {
   position: relative;
   display: inline-block;
@@ -50,3 +51,62 @@ cursor: all-scroll;
 .dropdown:hover .dropdown-content {display: block; }
 
 
+*/
+
+#di{
+  cursor: all-scroll;
+}
+.div1
+{
+  /*
+  border-style: solid;
+  */
+  margin-top: 15px;
+}
+
+#image{
+  width: 10%;
+  height: auto;
+
+}
+
+.card{
+  margin-top: 28px;
+}
+
+/* this is for user css in restaurants component */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+.dropbtn{
+  cursor: all-scroll;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 8px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+  text-decoration: none;
+}
+
+.dropdown:hover .dropdown-content {display: block; }
+
+img{
+  height: 150px;
+  width: 250px;
+}

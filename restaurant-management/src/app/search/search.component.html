@@ -6,7 +6,6 @@
     <ul>
       <li *ngFor="let users of restaurants | filterBy: userFilter">{{ users.name }}</li>
 
-      <!-- in case you want to show empty message -->
       <li *ngIf="(restaurants | filterBy: userFilter).length === 0">No matching elements</li>
     </ul>
   </div>

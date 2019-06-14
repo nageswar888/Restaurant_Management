@@ -7,6 +7,7 @@
   <!--adding restaurants-->
   <div class="size">
     <div *ngIf="add_res">
+      <h2>Adding Restaurant</h2>
       <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit(restaurantForm.value)">
         <div class="form-group">
           <label >Name</label>

@@ -1,12 +1,10 @@
-<div class="container">
-  <div *ngIf="loggedUser">
+<div class="jumbotron">
+<div *ngIf="loggedUser" id="user">
     Hello Mr! <h3>{{loggedUser[0].firstName}}&nbsp;{{loggedUser[0].lastName}}</h3>
   </div>
-<p>
-  Your profile is
-</p>
+  <div class="container">
   <div *ngIf="loggedUser">
-    <table class="table table-bordered">
+    <table class="table table-bordered table-dark">
       <tr>
         <th>First Name</th>
         <td>{{loggedUser[0].firstName}}</td>
@@ -29,4 +27,5 @@
       </tr>
     </table>
   </div>
+</div>
 </div>

@@ -1,4 +1,3 @@
-/*
 #di{
 cursor: all-scroll;
 }
@@ -18,7 +17,7 @@ cursor: all-scroll;
   margin-top: 28px;
 }
 
-!* this is for user css in restaurants component *!
+/* this is for user css in restaurants component */
 .dropdown {
   position: relative;
   display: inline-block;
@@ -51,9 +50,9 @@ cursor: all-scroll;
 .dropdown:hover .dropdown-content {display: block; }
 
 
-*/
 
 
+/*
 
 #di{
   cursor: all-scroll;
@@ -73,7 +72,7 @@ cursor: all-scroll;
   height: 220px !important;
 }
 
-/* this is for user css in restaurants component */
+!* this is for user css in restaurants component *!
 .dropdown {
   position: relative;
   display: inline-block;
@@ -143,3 +142,4 @@ input{
 .fa-user-circle{
   color: black;
 }
+*/

@@ -37,6 +37,19 @@ h2{
   visibility: visible;
 }
 
+.jumbotron{
+  padding-top: 5px;
+}
+
+.card-header h3 {
+  color: #24CE9F;
+}
+
+.login_btn{
+  color: white;
+  background-color: #24CE9F;
+  width: 100px;
+}
 
 /*.dropdown-list[_ngcontent-c2] {
   z-index: 0 !important;

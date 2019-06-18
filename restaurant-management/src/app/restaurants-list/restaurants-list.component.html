@@ -1,13 +1,16 @@
-
+<div class="jumbotron">
 <button class="btn btn-primary" (click)="add_restaurants()">Add restaurants</button>&nbsp;
 <button class="btn btn-primary" (click)="view_restaurants()">View restaurants</button>
+  <div><br></div>
 
+  <div *ngIf="add_res">
+  <div class="card size">
+    <div class="card-header">
+      <h3> Adding Restaurant</h3>
+    </div>
 <div class="container">
-  <br>
+  <div class="card-body">
   <!--adding restaurants-->
-  <div class="size">
-    <div *ngIf="add_res">
-      <h2>Adding Restaurant</h2>
       <form [formGroup]="restaurantForm" (ngSubmit)="onSubmit(restaurantForm.value)">
         <div class="form-group">
           <label >Name</label>
@@ -100,18 +103,19 @@
         </label></div>
     -->
         <div class="form-group">
-          <button class="btn btn-success">Add</button>
-          <input type="reset" value="Reset" class="btn btn-link">
+          <button type="reset"  class="btn btn-link float-md-right">Reset</button>
+          <button class="btn login_btn float-md-right">Add</button>
         </div>
       </form>
-
-    </div>
+    <br/>
   </div>
-
+    </div>
+</div>
+  </div>
   <!--viewing of restaurants-->
   <div *ngIf ="view_res">
     <div *ngIf="getRestaurants">
-      <table class="table table-condensed  table-hover">
+      <table class="table table-condensed table-striped table-hover">
         <thead>
         <tr>
           <th>Name</th>
@@ -125,7 +129,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let getRestaurant of getRestaurants" id="tRow">
+        <tr *ngFor="let getRestaurant of getRestaurants | filterBy: userFilter | paginate: { itemsPerPage: 4, currentPage: p }"  id="tRow">
           <td>{{getRestaurant.Name}}</td>
           <td>{{getRestaurant.Location}}</td>
           <td>{{getRestaurant.phone}}</td>
@@ -140,6 +144,7 @@
         </tr>
         </tbody>
       </table>
+      <div style="text-align: center"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
     </div>
   </div>
 
@@ -148,6 +153,6 @@
   </div>
 </div>
 
-<br><br>
+
 
 

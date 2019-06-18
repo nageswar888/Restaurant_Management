@@ -30,7 +30,7 @@ export class RestaurantsListComponent implements OnInit {
     this.add_res= false;
     this.view_res=true;
   }
-
+  userFilter: any = { Name: '',Location:''};
 
   constructor(
     private formBuilder: FormBuilder,

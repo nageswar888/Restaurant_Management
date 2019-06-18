@@ -2,7 +2,7 @@
   width:40%
 }*/
 .card {
-  margin-top: 10%;
+  margin-top: 7%;
   margin-bottom: 10%;
   width: 400px;
 }
@@ -37,4 +37,8 @@
 
 a {
   color: #24CE9F;
+}
+
+.color{
+  background: #e9ecef;
 }

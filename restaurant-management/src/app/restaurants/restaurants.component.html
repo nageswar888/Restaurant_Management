@@ -44,12 +44,26 @@
 
 
 
-<div class="container-fluid">
-  <br><div class="row">
+<nav class="navbar navbar-expand-lg navbar-light  navbar-custom">
+  <div class="pb-4 pt-3 mt-0 mb-0" ></div>
+  <b>Restaurant Management</b>
+    <input class="form-control col-md-4" type="search" [(ngModel)]="userFilter.Name" placeholder="Search" aria-label="Search">
+    <div class="dropdown align">
+      <p class="dropbtn col-md-1"><i class="fas fa-user-circle fa-2x"></i></p>
+      <div class="dropdown-content">
+        <button routerLink='/view-profile' class="btn btn-link">View profile</button>
+        <button routerLink='/restaurants-list' class="btn btn-link">Restaurants</button>
+        <button routerLink='/view-user' class="btn btn-link">View Users</button>
+        <button class="btn btn-link">Logout</button>
+      </div>
+    </div>
+</nav>
+<div class="container-fluid background">
+  <!--<br><div class="row">
   <div class="col-md-6"></div>
   <input class="form-control col-md-4" type="search" [(ngModel)]="userFilter.Name" placeholder="Search" aria-label="Search">
 
-  <!-- user in the restaurant -->
+  &lt;!&ndash; user in the restaurant &ndash;&gt;
   <div class="dropdown">
     <p class="dropbtn col-md-1"><i class="fas fa-user-circle fa-2x"></i></p>
     <div class="dropdown-content">
@@ -59,29 +73,56 @@
       <button class="btn btn-link">Logout</button>
     </div>
   </div>
-</div>
+</div>-->
 
   <div class="container">
     <div class="row " >
 <!--
       <div class="col-md-4"><app-search></app-search></div>
 -->
-      <div *ngIf="Restaurants" class="col-md-12">
+      <div *ngFor="let restaurant of Restaurants | filterBy: userFilter | paginate: { itemsPerPage: 1, currentPage: p }" >
+      </div>
+      <div *ngIf="restaurants" class="col-md-12">
         <div class="row div1">
-        <div *ngFor="let restaurant of Restaurants | filterBy: userFilter | paginate: { itemsPerPage: 2, currentPage: p }" >
-            <div class="col-md-5" (click)="navigate(restaurant.id)">
-              <div id="image"><img src="assets/images/download.jpeg"></div></div>
-            <!--<div class="col-md-7">
-              <div>{{restaurant.Name}}</div>
-              <div><rating [ngModel]="3" [max]="5"
-                           [readonly]="true" style="font-size: 11px;"></rating>
-              </div>
-              <div>location: {{restaurant.Location}}</div>
-            </div>-->
-          </div>
+          <div class="card">
+            <div class="img"><img src="assets/images/bawarchi.jpg"></div>
+            <span><b>Paradise</b><span class="rating">3.5<i class="fas fa-star"></i></span></span><p>Secundrabad</p></div>&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="card">
+            <div class="img"><img src="assets/images/abits bistro.jpeg"></div>
+            <span><b>Abits Bistro</b><span class="rating">3.5<i class="fas fa-star"></i></span></span><p>Abits</p></div>&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <div class="card">
+            <div class="img"><img src="assets/images/absolute barbecues.jpg"></div>
+            <span><b>Headquarters</b><span class="rating">3.5<i class="fas fa-star"></i></span></span><p>Somajiguda</p></div>&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <div class="card">
+            <div class="img"><img src="assets/images/arena eleven.jpg"></div>
+            <span><b>Arena Eleven</b><span class="rating">3.5<i class="fas fa-star"></i></span></span><p>Gachibowli</p></div>&nbsp;&nbsp;&nbsp;&nbsp;
+
         </div>
+
+
+        <div class="row div1">
+           <div class="card">
+             <div class="img"><img src="assets/images/bikanervala.jpeg"></div>
+             <span><b>Bikanervala</b><span class="rating">3.5<i class="fas fa-star"></i></span></span><p>Banjara Hills</p></div>&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <div class="card">
+            <div class="img"><img src="assets/images/by the bay.jpg"></div>
+            <span><b>By the Bay</b><span class="rating">3.5<i class="fas fa-star"></i></span></span><p>Khairatabad</p></div>&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <div class="card">
+            <div class="img"><img src="assets/images/hyper local.jpg"></div>
+            <span><b>Hyper Local</b><span class="rating">3.5<i class="fas fa-star"></i></span></span><p>Gachibowli</p></div>&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <div class="card">
+            <div class="img"><img src="assets/images/ohri's.jpeg"></div>
+            <span><b>Ohri's</b><span class="rating">3.5<i class="fas fa-star"></i></span></span><p>Begumpet</p></div>&nbsp;&nbsp;&nbsp;&nbsp;
+
+        </div>
+
         <div *ngIf="(Restaurants | filterBy: userFilter).length === 0">No matching elements found</div>
-        <br><pagination-controls (pageChange)="p = $event"></pagination-controls>  <!--pagination-->
+        <br><div style="text-align: center"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>  <!--pagination-->
       </div>
     </div>
   </div>

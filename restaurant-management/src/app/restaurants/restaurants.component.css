@@ -53,14 +53,13 @@ cursor: all-scroll;
 
 */
 
+
+
 #di{
   cursor: all-scroll;
 }
 .div1
 {
-  /*
-  border-style: solid;
-  */
   margin-top: 15px;
 }
 
@@ -71,7 +70,7 @@ cursor: all-scroll;
 }
 
 .card{
-  margin-top: 28px;
+  height: 220px !important;
 }
 
 /* this is for user css in restaurants component */
@@ -109,4 +108,38 @@ cursor: all-scroll;
 img{
   height: 150px;
   width: 250px;
+}
+
+.background{
+  color: #f4f4f4;;
+}
+
+p{
+  color: dimgray;
+  padding-left: 20px;
+  font-size: 90%;
+}
+
+span{
+  color: black;
+  padding-left: 20px;
+  font-size: 120%;
+}
+.rating{
+  font-size: 90%;
+  padding-left: 50px;
+  color: #FFC312;
+}
+.navbar-custom {
+  background: linear-gradient(to bottom, #33ccff 1%, #ff9966 100%);
+}
+input{
+  margin-left: 490px;
+}
+
+.align{
+  margin-top: 10px;
+}
+.fa-user-circle{
+  color: black;
 }

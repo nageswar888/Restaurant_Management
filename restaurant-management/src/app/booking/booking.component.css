@@ -13,7 +13,7 @@ i{
 }
   .card-class {
     padding-left: 47px;
-    padding-top: 12px;
+    padding-top: 3px;
     padding-bottom: 28px;
   }
 
@@ -55,3 +55,6 @@ i{
     width: 276px;
   }
 
+  .btn{
+    width: 100%;
+  }
